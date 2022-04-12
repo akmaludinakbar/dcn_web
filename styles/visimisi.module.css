@@ -1,0 +1,53 @@
+.navweb {
+  top: 50px;
+  padding-left: 45vw;
+  padding-right: 5vw;
+  /* :css-1abc02a */
+}
+.tittle {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: 0em;
+  /* text-align: center; */
+}
+.subtittle {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+@media only screen and (max-width: 768px) {
+  .tittle {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 43px;
+    padding-left: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .item {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .subtittle {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+
+    text-align: left;
+  }
+  .navweb {
+    top: -30px;
+    padding-left: 0px;
+    padding-right: 0px;
+    /* :css-1abc02a */
+  }
+}

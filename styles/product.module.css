@@ -1,0 +1,33 @@
+.tittle {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: 0em;
+}
+.subtittle {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #3e4c59;
+}
+.p_judul {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.p_subjudul {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #6b7580;
+}

@@ -1,0 +1,29 @@
+.tittle {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.014em;
+
+  text-align: left;
+}
+
+.subtittle {
+  padding-top: 10px;
+  color: #00abeb;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 0.014em;
+  text-align: left;
+}
+.caption {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #9ba1a8;
+}

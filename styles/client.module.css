@@ -1,0 +1,18 @@
+.tes {
+  background-color: red;
+  border-radius: 20px;
+  height: 176px;
+}
+.tes:hover {
+  background-color: blue;
+}
+.tittle {
+  color: #242d35;
+
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: 0em;
+  text-align: center;
+}
