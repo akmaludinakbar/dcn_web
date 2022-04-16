@@ -63,7 +63,7 @@ const Dokumentasi = () => {
         }}
       >
         {items.map((item, i) => (
-          <div style={{ minHeight: "280 px" }}>
+          <div style={{ minHeight: "280px" }}>
             {" "}
             <Grid
               container
