@@ -14,14 +14,14 @@ const Dokumentasi = () => {
       description: "Probably the most random thing you have ever seen!",
     },
     {
-      image1: "/galery/3.svg",
-      image2: "/galery/4.svg",
-      image3: "/galery/2.svg",
-      image4: "/galery/1.svg",
+      image1: "/galery/5.jpg",
+      image2: "/galery/6.jpg",
+      image3: "/galery/7.jpg",
+      image4: "/galery/8.jpg",
       description: "Hello World!",
     },
     {
-      image1: "/galery/2.svg",
+      image1: "/galery/9.jpg",
       image2: "/galery/4.svg",
       image3: "/galery/1.svg",
       image4: "/galery/3.svg",
@@ -37,20 +37,20 @@ const Dokumentasi = () => {
       image: "/galery/3.svg",
     },
     { image: "/galery/4.svg" },
-    { image: "/galery/3.svg" },
-    { image: "/galery/2.svg" },
-    { image: "/galery/1.svg" },
+    { image: "/galery/2.jpg" },
+    { image: "/galery/5.jpg" },
+    { image: "/galery/6.jpg" },
     {
-      image: "/galery/4.svg",
+      image: "/galery/7.jpg",
     },
-    { image: "/galery/3.svg" },
-    { image: "/galery/2.svg" },
+    { image: "/galery/8.jpg" },
+    { image: "/galery/9.jpg" },
     { image: "/galery/1.svg" },
     {
       image: "/galery/4.svg",
     },
   ];
-  const menu = ({ width = 301, height = 226 }) => {
+  const menu = ({ width = 301, height = 250 }) => {
     return (
       <Carousel
         navButtonsProps={{
@@ -63,7 +63,7 @@ const Dokumentasi = () => {
         }}
       >
         {items.map((item, i) => (
-          <div style={{ minHeight: "260px" }}>
+          <div style={{ minHeight: "280 px" }}>
             {" "}
             <Grid
               container

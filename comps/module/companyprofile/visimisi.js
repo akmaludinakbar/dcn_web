@@ -58,7 +58,7 @@ const VisiMisi = () => {
       description2: "Pelayanan yang berkualitas",
       description3: "Keamanan dan kenyamanan di segala prospek",
       description4: "Menciptakan pekerja yang profesional",
-      image: "/section3_icon2.png",
+      image: "/section3_icon2.svg",
     },
     {
       name: "MOTTO",

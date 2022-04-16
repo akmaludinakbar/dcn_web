@@ -20,7 +20,7 @@ const Dashboard = () => {
         >
           <Grid item xs={12} md={6}>
             <Image
-              src="/first.svg"
+              src="/firsts.png"
               alt="site logo"
               width={600}
               height={500}
@@ -34,7 +34,9 @@ const Dashboard = () => {
             </Grid>
             <Grid item>
               <Typography variant="caption" className={styles.fontfirst2}>
-              PT. DINAR CAHAYA NEGARA merupakan perusahaan yang bergerak dibidang Manppower Supply disegala bidang dan terlengkap se-Jawa Tengah
+                PT. DINAR CAHAYA NEGARA merupakan perusahaan yang bergerak
+                dibidang Manppower Supply disegala bidang dan terlengkap se-Jawa
+                Tengah
               </Typography>
             </Grid>
           </Grid>
