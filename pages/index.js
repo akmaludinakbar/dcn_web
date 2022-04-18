@@ -7,6 +7,7 @@ import Sejarah from "../comps/module/companyprofile/sejarah";
 import VisiMisi from "../comps/module/companyprofile/visimisi";
 import Product from "../comps/module/companyprofile/product";
 import Whyus from "../comps/module/companyprofile/whyus";
+import Fab from "@mui/material/Fab";
 import Client from "../comps/module/companyprofile/client";
 import Testimoni from "../comps/module/companyprofile/testimoni";
 import Dokumentasi from "../comps/module/companyprofile/dokumentasi";
@@ -36,6 +37,7 @@ export default function Home() {
           {/* <Link href="/ninjas/">
           <a className={styles.btn}>See Ninja Listing</a>
         </Link> */}
+
           <Dashboard id="dashboard" />
           <Sejarah id="sejarah" />
           <VisiMisi id="visimisi" />

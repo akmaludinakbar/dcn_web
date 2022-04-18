@@ -17,7 +17,7 @@ const Dashboard = () => {
             justifyContent: { xs: "flex-start", md: "center" },
             alignItems: { xs: "flex-start", md: "center" },
           }}
-          style={{ marginTop: 70, padding: 20 ,backgroundColor:"blue"}}
+          style={{ marginTop: 70, padding: 20 }}
         >
           <Grid item xs={12} md={6}>
             <Image

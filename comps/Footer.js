@@ -55,7 +55,25 @@ const item1 = (variant) => {
         </Grid>{" "}
         <Grid item>
           <Typography textAlign={"start"} variant={variant}>
-            0813-2747-1506
+            0285-391858
+          </Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        direction={"column"}
+        justifyContent="flex-start"
+        alignItems="flex-start"
+      >
+        <Grid item>
+          <Typography textAlign={"start"} className={styles.b_tittle}>
+            whatsapp
+          </Typography>
+        </Grid>{" "}
+        <Grid item>
+          <Typography textAlign={"start"} variant={variant}>
+            083861757102
           </Typography>
         </Grid>
       </Grid>
