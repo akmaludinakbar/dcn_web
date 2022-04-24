@@ -9,7 +9,6 @@ const Dashboard = () => {
         <div className={styles.section1_child_bullet2} />
 
         <Grid
-     
           container
           xs
           sx={{
@@ -17,7 +16,7 @@ const Dashboard = () => {
             justifyContent: { xs: "flex-start", md: "center" },
             alignItems: { xs: "flex-start", md: "center" },
           }}
-          style={{ marginTop: 70, padding: 20 }}
+          style={{ marginTop: 0, padding: 20, height: "100vh" }}
         >
           <Grid item xs={12} md={6}>
             <Image
@@ -36,8 +35,8 @@ const Dashboard = () => {
             <Grid item>
               <Typography variant="caption" className={styles.fontfirst2}>
                 PT. DINAR CAHAYA NEGARA merupakan perusahaan yang bergerak
-                dibidang Manppower Supply disegala bidang dan terlengkap se-Pulau Jawa
-                
+                dibidang Manppower Supply disegala bidang dan terlengkap
+                se-Pulau Jawa
               </Typography>
             </Grid>
           </Grid>

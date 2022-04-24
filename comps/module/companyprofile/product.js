@@ -2,9 +2,11 @@ import { Typography, Grid, Button, Card } from "@mui/material";
 import styles from "../../../styles/Home.module.css";
 import stylesfont from "../../../styles/product.module.css";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const menu = ({ url, tittle, desc, route = "" }) => {
+  const router = useRouter();
   return (
     <Grid item xs={11} md={3}>
       {" "}
@@ -39,6 +41,9 @@ const menu = ({ url, tittle, desc, route = "" }) => {
                 borderRadius: "8px",
 
                 border: "1px solid #00ABEB",
+              }}
+              onClick={() => {
+                router.push(route);
               }}
               variant="outlined"
               endIcon={<ArrowForwardIosIcon style={{ fontSize: "8" }} />}
@@ -105,21 +110,25 @@ const Product = () => {
                 url: "/section5_4.svg",
                 tittle: "HR Development",
                 desc: "DCN Integrated Corporate Solution akan menyediakan sumber daya yang komprehensif dan berkualitas.",
+                route: "/humanresource",
               })}
               {menu({
                 url: "/section5_1.svg",
                 tittle: "Security Service",
                 desc: "DCN Intergrated Corporate Solution akan memberikan pelayanan jasa pengamanan yang berkualitas secara komprehensif dan berkualitas.",
+                route: "/security",
               })}
               {menu({
                 url: "/section5_2.svg",
                 tittle: "Ratu Cleaning",
                 desc: "DCN Intergrated Corporate Solution memberikan pelayanan di Bidang Kebersihan atau Cleaning Service.",
+                route: "/ratucleaning",
               })}
               {menu({
                 url: "/section5_3.svg",
                 tittle: "Catering Service",
                 desc: "DCN Intergrated Corporate Solution siap menyediakan menu yang bergizi sesuai keinginan klien baik Menu Sarapan , Menu siang , maupun Menu malam. ",
+                route: "/catering",
               })}
             </Grid>
           </Grid>
