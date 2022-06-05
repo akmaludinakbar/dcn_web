@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .post(
       //process.env.USER_LOGIN_PESERTA +
-      "http://localhost:8000/login",
+      "http://api.dinarcahayanegara.com/login",
       {
         nama: parm.username,
         password: parm.password,
