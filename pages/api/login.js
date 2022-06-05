@@ -1,15 +1,15 @@
 import axios from "axios";
 
 export default async (req, res) => {
-  let parm = JSON.parse(req.body);
+  // let parm = JSON.parse(req.body);
   let resp = { status: 0 };
   axios
     .post(
       //process.env.USER_LOGIN_PESERTA +
       "http://api.dinarcahayanegara.com/login",
       {
-        nama: parm.username,
-        password: parm.password,
+        nama: "tes",
+        password: "tes",
       }
     )
     .then(function (response) {
