@@ -5,12 +5,7 @@ import NavbarMobile from "./NavbarMobile";
 import * as React from "react";
 
 const LayoutHome = ({ children }) => {
-  return (
-    <div className="content">
-      {children}
-      <Navbar />
-    </div>
-  );
+  return <Navbar>{children}</Navbar>;
 };
 
 export default LayoutHome;

@@ -1,0 +1,23 @@
+{
+  "/404": "pages/404.html",
+  "/_app": "pages/_app.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/login": "pages/api/login.js",
+  "/api/lokasi/delete": "pages/api/lokasi/delete.js",
+  "/api/lokasi/edit": "pages/api/lokasi/edit.js",
+  "/api/lokasi/tambah": "pages/api/lokasi/tambah.js",
+  "/catering": "pages/catering.html",
+  "/home/Lokasi": "pages/home/Lokasi.js",
+  "/home/Pekerja": "pages/home/Pekerja.js",
+  "/home/Pekerjaan": "pages/home/Pekerjaan.js",
+  "/home": "pages/home.html",
+  "/humanresource": "pages/humanresource.html",
+  "/": "pages/index.html",
+  "/login": "pages/login.html",
+  "/ninjas/[id]": "pages/ninjas/[id].js",
+  "/ninjas": "pages/ninjas.js",
+  "/ratucleaning": "pages/ratucleaning.html",
+  "/security": "pages/security.html",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js"
+}

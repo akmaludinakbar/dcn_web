@@ -6,16 +6,15 @@ import Router from "next/router";
 export default function Home() {
   return (
     <>
-      <LayoutHome>
-        <Button
-          onClick={(e) => {
-            Router.push("/home/Lokasi");
-          }}
-          style={{ marginTop: 200 }}
-        >
-          lanjut
-        </Button>
-      </LayoutHome>
+      <Button
+        onClick={(e) => {
+          Router.push("/home/Lokasi");
+        }}
+        style={{ marginTop: 200 }}
+      >
+        lanjut
+      </Button>
     </>
   );
 }
+Home.Layout = LayoutHome;
