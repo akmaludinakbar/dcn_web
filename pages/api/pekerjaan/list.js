@@ -4,10 +4,12 @@ export default async (req, res) => {
   let parm = JSON.parse(req.body);
   let resp = { status: 0 };
   axios
-    .delete(
-      //process.env.USER_LOGIN_PESERTA +
-      `http://api.dinarcahayanegara.com/lokasikerja/${parm.id}`
-    )
+    .post(`http://api.dinarcahayanegara.com/pekerjaan`, {
+      nama: parm.nama,
+      tanggal_pekerjaan: parm.tanggal_pekerjaan,
+      tempat_kerja: parm.tempat_kerja,
+      status: parm.status,
+    })
     .then(function (response) {
       if (response.status == 200) {
         resp.status = 200;
@@ -19,7 +21,8 @@ export default async (req, res) => {
       }
     })
     .catch(function (error) {
-      resp.status = error.response.status;
+      console.log(error);
+      resp.status = 999;
       res.json(JSON.stringify(resp));
     });
 };

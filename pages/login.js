@@ -173,6 +173,7 @@ export default function Login() {
                             //gagal login
                             setstatus(response.data);
                           } else {
+                            console.log(response.data.token);
                             cookie.set("token", response.data.token);
                             setstatus(response.data.status);
                             Router.push("/home");

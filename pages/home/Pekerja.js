@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
+import moment from "moment";
 import {
   Typography,
   Grid,
@@ -11,22 +12,26 @@ import {
   TablePagination,
   Paper,
   Table,
+  MenuItem,
+  Select,
   TableHead,
   TableRow,
   TableCell,
+  Autocomplete,
+  Avatar,
   TableBody,
 } from "@mui/material";
-
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 import DeleteIcon from "@mui/icons-material/Delete";
 import LayoutHome from "../../comps/LayoutHome";
 import { styled } from "@mui/material/styles";
 import { tableCellClasses } from "@mui/material/TableCell";
 import Router from "next/router";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import EditIcon from "@mui/icons-material/Edit";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -116,12 +121,64 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Pekerja(props) {
-  const { data } = props;
+  const { data, listlokasikerja } = props;
   const [Id, setId] = useState();
-  const [namaLokasi, setnamaLokasi] = useState("");
-  const [kordinatX, setkordinatX] = useState("");
-  const [kordinatY, setkordinatY] = useState("");
+  const [nama, setNama] = useState("");
+  const [idlokasikerja, setIdlokasikerja] = useState(undefined);
+  const [telepon, setTelepon] = useState("");
+  const [idimg, setIdimg] = useState("");
+  const [urlfoto, setUrlfoto] = useState("");
+  const fileInput = React.useRef();
   const classes = useStyles();
+  const [tanggallahir, setTanggallahir] = React.useState(null);
+
+  const handleChange = (newValue) => {
+    var datum = Date.parse(newValue);
+    setTanggallahir(`${datum / 1000}`);
+  };
+
+  const setUpload = async (files, id, url_foto) => {
+    // var imagedata = files[0];
+    // console.log("keinsi");
+    // console.log(imagedata);
+    // var data = new FormData();
+    // data.append("File", imagedata);
+    const formData = new FormData();
+    formData.append("url_foto", url_foto);
+    formData.append("file", files);
+    const options = {
+      method: "POST",
+      body: formData,
+      // If you add this, upload won't work
+      // headers: {
+      //   'Content-Type': 'multipart/form-data',
+      // }
+    };
+    await fetch(`http://api.dinarcahayanegara.com/upload/${id}`, options).then(
+      function (res) {
+        alert("Tes");
+        console.log(res);
+        // if (res.ok) {
+        //   alert("Perfect! ");
+        // } else if (res.status == 401) {
+        //   alert("Oops! ");
+        // }
+      },
+      function (e) {
+        console.log(e);
+
+        Router.reload();
+        alert("Success");
+      }
+    );
+  };
+  const itemList = [
+    { value: "Car Winner", id: "casinofob" },
+    { value: "PD 556", id: "-2084633992" },
+    { value: "Cluckin Drink", id: "cbdrink" },
+    { value: "Blink", id: "spellbook-blink" },
+  ];
+
   return (
     <>
       <div>
@@ -134,59 +191,120 @@ export default function Pekerja(props) {
                 style={{ padding: 20 }}
                 spacing={1}
               >
-                <Grid item xs={12} container direction={"row"}>
+                {/* <Grid item xs={12} container direction={"row"}>
                   {" "}
-                  <Grid item xs={4}>
+                  <Grid
+                    item
+                    xs={5}
+                    style={{ paddingLeft: 35, paddingBottom: 30 }}
+                  >
                     {" "}
-                    Nama Lokasi Kerja
+                    <Avatar
+                      alt="Remy Sharp"
+                      sx={{ width: 90, height: 90 }}
+                      //src={`http://api.dinarcahayanegara.com/images/${item.url_foto}`}
+                    />
                   </Grid>
-                  <Grid item xs={5}>
-                    {" "}
-                    <TextField
-                      size="small"
-                      fullWidth
-                      value={namaLokasi}
-                      onChange={(e) => setnamaLokasi(e.target.value)}
-                      placeholder="Bank Mandiri Batang"
-                    ></TextField>
+                </Grid>{" "} */}
+                <Grid item container direction="row" xs={12} spacing={1}>
+                  <Grid item xs={10} container direction={"row"} spacing={1}>
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Nama
+                      </Grid>
+                      <Grid item xs>
+                        {" "}
+                        <TextField
+                          size="small"
+                          fullWidth
+                          value={nama}
+                          onChange={(e) => setNama(e.target.value)}
+                          placeholder="Robert"
+                        ></TextField>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Nomor Telepon
+                      </Grid>
+                      <Grid item xs>
+                        {" "}
+                        <TextField
+                          size="small"
+                          value={telepon}
+                          type="number"
+                          fullWidth
+                          onChange={(e) => setTelepon(e.target.value)}
+                          placeholder="0812256372123"
+                        ></TextField>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Tujuan Penempatan
+                      </Grid>
+                      <Grid item xs>
+                        {" "}
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          displayEmpty
+                          fullWidth
+                          size="small"
+                          value={`${idlokasikerja}`}
+                          onChange={(e) => setIdlokasikerja(e.target.value)}
+                        >
+                          {listlokasikerja.map((option) => (
+                            <MenuItem key={option["id"]} value={option["id"]}>
+                              {option["NamaLokasiKerja"]}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Tanggal Lahir
+                      </Grid>
+                      <Grid item xs>
+                        {" "}
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                          <DesktopDatePicker
+                            inputFormat="MM/dd/yyyy"
+                            fullWidth
+                            maxDate={Date.now()}
+                            value={
+                              tanggallahir == null
+                                ? null
+                                : `${moment.unix(tanggallahir)}`
+                            }
+                            onChange={handleChange}
+                            renderInput={(params) => <TextField {...params} />}
+                          />
+                        </LocalizationProvider>
+                      </Grid>
+                    </Grid>{" "}
                   </Grid>
-                </Grid>{" "}
-                <Grid item xs={12} container direction={"row"}>
-                  {" "}
-                  <Grid item xs={4}>
-                    {" "}
-                    Titik Kordinat X
+                  <Grid
+                    item
+                    xs={2}
+                    style={{ paddingLeft: "3vw", paddingTop: 0 }}
+                  >
+                    <Avatar
+                      alt="Remy Sharp"
+                      sx={{ width: 150, height: 150 }}
+                      src={urlfoto}
+                    />
                   </Grid>
-                  <Grid item xs={5}>
-                    {" "}
-                    <TextField
-                      size="small"
-                      value={kordinatX}
-                      type="number"
-                      fullWidth
-                      onChange={(e) => setkordinatX(e.target.value)}
-                      placeholder="-6.9054885671866995"
-                    ></TextField>
-                  </Grid>
-                </Grid>{" "}
-                <Grid item xs={12} container direction={"row"}>
-                  {" "}
-                  <Grid item xs={4}>
-                    {" "}
-                    Titik Kordinat Y
-                  </Grid>
-                  <Grid item xs={5}>
-                    {" "}
-                    <TextField
-                      size="small"
-                      fullWidth
-                      type="number"
-                      onChange={(e) => setkordinatY(e.target.value)}
-                      value={kordinatY}
-                      placeholder="109.7180930661242"
-                    ></TextField>
-                  </Grid>
-                </Grid>{" "}
+                </Grid>
                 <Grid
                   item
                   xs={12}
@@ -201,14 +319,19 @@ export default function Pekerja(props) {
                       variant="contained"
                       color="warning"
                       onClick={() => {
+                        // nama: parm.nama,
+                        // nomor_telepon: parm.nomor_telepon,
+                        // id_lokasi_kerja: parm.id_lokasi_kerja,
+                        // tgl_lahir:parm.tgl_lahir
                         let obj = {
                           id: Id,
-                          lokasikerja: namaLokasi,
-                          kordinatx: kordinatX,
-                          kordinaty: kordinatY,
+                          nama: nama,
+                          nomor_telepon: telepon,
+                          id_lokasi_kerja: idlokasikerja,
+                          tgl_lahir: tanggallahir,
                         };
                         let stringifyReq = JSON.stringify(obj);
-                        fetch(`${window.location.origin}/api/lokasi/edit`, {
+                        fetch(`${window.location.origin}/api/pekerja/edit`, {
                           method: "POST",
                           body: stringifyReq,
                         })
@@ -236,12 +359,18 @@ export default function Pekerja(props) {
                       variant="contained"
                       onClick={() => {
                         let obj = {
-                          lokasikerja: namaLokasi,
-                          kordinatx: kordinatX,
-                          kordinaty: kordinatY,
+                          nama: nama.replace(/\s?$/, ""),
+                          nomor_telepon: telepon,
+                          id_lokasi_kerja: idlokasikerja,
+                          tgl_lahir: tanggallahir,
                         };
                         let stringifyReq = JSON.stringify(obj);
-                        fetch(`${window.location.origin}/api/lokasi/tambah`, {
+                        //                       nama := keyVal["nama"]
+                        // nomor_telepon := keyVal["nomor_telepon"]
+                        // id_lokasi_kerja := keyVal["id_lokasi_kerja"]
+                        // password := keyVal["password"]
+                        // tgl_lahir := keyVal["tgl_lahir"]
+                        fetch(`${window.location.origin}/api/pekerja/tambah`, {
                           method: "POST",
                           body: stringifyReq,
                         })
@@ -285,9 +414,12 @@ export default function Pekerja(props) {
                   <TableHead style={{ backgroundColor: "#0486cfa1" }}>
                     <TableRow>
                       <TableCell>#</TableCell>
-                      <TableCell align="left">Nama Lokasi</TableCell>
-                      <TableCell align="left">Kordinat x</TableCell>
-                      <TableCell align="left">Kordinat y</TableCell>
+                      <TableCell align="left"></TableCell>
+                      <TableCell align="left">Nama </TableCell>
+                      <TableCell align="left">Username </TableCell>
+                      <TableCell align="left">Telepon</TableCell>
+                      <TableCell align="left">Penempatan</TableCell>
+                      <TableCell align="left">Tgl Lahir</TableCell>
                       <TableCell align="center">Aksi</TableCell>
                     </TableRow>
                   </TableHead>
@@ -304,13 +436,30 @@ export default function Pekerja(props) {
                           {itemIndex + 1}
                         </StyledTableCell>
                         <StyledTableCell component="th" scope="row">
+                          <Avatar
+                            alt="Remy Sharp"
+                            src={`http://api.dinarcahayanegara.com/${item.url_foto}`}
+                          />
+                          {/* {item.url_foto} */}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                          {item.nama}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                          {item.username}
+                        </StyledTableCell>
+                        <StyledTableCell component="th" scope="row">
+                          {item.nomor_telepon}
+                        </StyledTableCell>
+                        <StyledTableCell align="left">
                           {item.NamaLokasiKerja}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {item.KordinatY}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {item.KordinatX}
+                          {item.tgllahir == "-"
+                            ? null
+                            : `${moment
+                                .unix(item.tgllahir)
+                                .format("MM-DD-YYYY")}`}
                         </StyledTableCell>
                         <StyledTableCell align="center">
                           <Button
@@ -321,7 +470,7 @@ export default function Pekerja(props) {
                               };
                               let stringifyReq = JSON.stringify(obj);
                               fetch(
-                                `${window.location.origin}/api/lokasi/delete`,
+                                `${window.location.origin}/api/pekerja/delete`,
                                 {
                                   method: "DELETE",
                                   body: stringifyReq,
@@ -346,12 +495,33 @@ export default function Pekerja(props) {
                             data-testid={"btn-detail-" + item.id}
                             onClick={() => {
                               setId(item.id);
-                              setnamaLokasi(item.NamaLokasiKerja);
-                              setkordinatX(item.KordinatX);
-                              setkordinatY(item.KordinatY);
+                              setNama(item.nama);
+                              setIdlokasikerja("56");
+                              setTanggallahir(item.tgllahir);
+
+                              setTelepon(item.nomor_telepon);
+                              setUrlfoto(
+                                `http://api.dinarcahayanegara.com/${item.url_foto}`
+                              );
                             }}
                           >
                             <EditIcon />
+                          </Button>
+                          <Button
+                            // variant="contained"
+                            component="label"
+                            onChange={(e) => {
+                              // alert(item.id);
+                              // console.log(e.target.files[0]);
+                              setUpload(
+                                e.target.files[0],
+                                item.id,
+                                item.url_foto
+                              );
+                            }}
+                          >
+                            <UploadFileIcon style={{ color: "orange" }} />
+                            <input type="file" hidden />
                           </Button>
                         </StyledTableCell>
                       </StyledTableRow>
@@ -383,14 +553,22 @@ export default function Pekerja(props) {
   );
 }
 export async function getServerSideProps(context) {
-  var urlEmployers = "http://localhost:8090/pekerja";
+  var urlEmployers = "http://api.dinarcahayanegara.com/pekerja";
   var resEmployers = await fetch(urlEmployers, {
     method: "GET",
   });
   const employerList = await resEmployers.json();
+
+  var urlDatareferensiLokasiPekerja =
+    "http://api.dinarcahayanegara.com/lokasikerja";
+  var resDatareferensi = await fetch(urlDatareferensiLokasiPekerja, {
+    method: "GET",
+  });
+  const LokasiKerjaList = await resDatareferensi.json();
   return {
     props: {
       data: employerList || [],
+      listlokasikerja: LokasiKerjaList || [],
     },
   };
 }

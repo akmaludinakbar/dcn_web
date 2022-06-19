@@ -83,6 +83,10 @@ let url = [
     path: "/home/Pekerjaan",
     name: "Tambah Pekerjaan",
   },
+  {
+    path: "/home/absensi",
+    name: "Catatan Kehadiran",
+  },
 ];
 
 export default function NavbarHome({ children }) {

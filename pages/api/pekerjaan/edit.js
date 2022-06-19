@@ -4,9 +4,14 @@ export default async (req, res) => {
   let parm = JSON.parse(req.body);
   let resp = { status: 0 };
   axios
-    .delete(
+    .put(
       //process.env.USER_LOGIN_PESERTA +
-      `http://api.dinarcahayanegara.com/lokasikerja/${parm.id}`
+      `http://api.dinarcahayanegara.com/pekerjaan/${parm.id}`,
+      {
+        nama_pekerjaan: parm.nama_pekerjaan,
+        detail: parm.detail,
+        id_pekerja: parm.id_pekerja,
+      }
     )
     .then(function (response) {
       if (response.status == 200) {

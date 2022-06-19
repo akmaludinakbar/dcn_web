@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { format } from "date-fns";
 import {
   Typography,
   Grid,
@@ -11,15 +15,22 @@ import {
   TablePagination,
   Paper,
   Table,
+  Accordion,
+  AccordionSummary,
+  Select,
+  MenuItem,
+  Chip,
   TableHead,
   TableRow,
   TableCell,
+  AccordionDetails,
   TableBody,
 } from "@mui/material";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 import LayoutHome from "../../comps/LayoutHome";
 import { styled } from "@mui/material/styles";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tableCellClasses } from "@mui/material/TableCell";
 import Router from "next/router";
 import EditIcon from "@mui/icons-material/Edit";
@@ -123,162 +134,412 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Pekerjaan(props) {
-  const { data } = props;
+  const { pekerja, listlokasikerja, statuspekerjaan } = props;
+  const [lokasikerja, setLokasiKerja] = useState(null);
+  const [data, setData] = useState(props.data);
   const [Id, setId] = useState();
-  const [namaLokasi, setnamaLokasi] = useState("");
-  const [kordinatX, setkordinatX] = useState("");
-  const [kordinatY, setkordinatY] = useState("");
+  const [status, setStatus] = useState();
+  const [namaPekerjaan, setNamaPekerjaan] = useState("");
+  const [detailPekerjaan, setDetailPekerjaan] = useState("");
+  const [nama, setNama] = useState("");
+  const [created_at, setCreated_at] = useState(null);
   const classes = useStyles();
+  const handleCreated_at = (newValue) => {
+    setCreated_at(format(newValue, "yyyy-MM-dd"));
+  };
   return (
     <>
       <div>
         <Grid container direction={"row"} spacing={3}>
           <Grid item xs={12}>
             <Card>
-              <Grid
-                container
-                direction={"row"}
-                style={{ padding: 20 }}
-                spacing={1}
-              >
-                <Grid item xs={12} container direction={"row"}>
-                  {" "}
-                  <Grid item xs={4}>
-                    {" "}
-                    Nama Lokasi Kerja
-                  </Grid>
-                  <Grid item xs={5}>
-                    {" "}
-                    <TextField
-                      size="small"
-                      fullWidth
-                      value={namaLokasi}
-                      onChange={(e) => setnamaLokasi(e.target.value)}
-                      placeholder="Bank Mandiri Batang"
-                    ></TextField>
-                  </Grid>
-                </Grid>{" "}
-                <Grid item xs={12} container direction={"row"}>
-                  {" "}
-                  <Grid item xs={4}>
-                    {" "}
-                    Titik Kordinat X
-                  </Grid>
-                  <Grid item xs={5}>
-                    {" "}
-                    <TextField
-                      size="small"
-                      value={kordinatX}
-                      type="number"
-                      fullWidth
-                      onChange={(e) => setkordinatX(e.target.value)}
-                      placeholder="-6.9054885671866995"
-                    ></TextField>
-                  </Grid>
-                </Grid>{" "}
-                <Grid item xs={12} container direction={"row"}>
-                  {" "}
-                  <Grid item xs={4}>
-                    {" "}
-                    Titik Kordinat Y
-                  </Grid>
-                  <Grid item xs={5}>
-                    {" "}
-                    <TextField
-                      size="small"
-                      fullWidth
-                      type="number"
-                      onChange={(e) => setkordinatY(e.target.value)}
-                      value={kordinatY}
-                      placeholder="109.7180930661242"
-                    ></TextField>
-                  </Grid>
-                </Grid>{" "}
-                <Grid
-                  item
-                  xs={12}
-                  container
-                  direction={"row"}
-                  justifyContent="flex-end"
-                  alignItems="flex-end"
-                  spacing={2}
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ backgroundColor: "#0486cfa1" }}
                 >
-                  <Grid item>
-                    <Button
-                      variant="contained"
-                      color="warning"
-                      onClick={() => {
-                        let obj = {
-                          id: Id,
-                          lokasikerja: namaLokasi,
-                          kordinatx: kordinatX,
-                          kordinaty: kordinatY,
-                        };
-                        let stringifyReq = JSON.stringify(obj);
-                        fetch(`${window.location.origin}/api/lokasi/edit`, {
-                          method: "POST",
-                          body: stringifyReq,
-                        })
-                          .then((resp) => resp.json())
-                          .then((response) => {
-                            console.log(response);
-                            if (response.status == 200) {
-                              alert("Data Update.!!");
-                              Router.reload();
-                            } else {
-                              alert("!! ERROR " + response.data);
-                            }
-                          })
-                          .catch(function (error) {
-                            console.log(error);
-                          });
-                      }}
+                  <Typography>Edit / Tambah Pekerjaan</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid
+                    container
+                    direction={"row"}
+                    style={{ padding: 20 }}
+                    spacing={1}
+                  >
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Nama Pekerjaan
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <TextField
+                          size="small"
+                          multiline
+                          fullWidth
+                          value={namaPekerjaan}
+                          onChange={(e) => setNamaPekerjaan(e.target.value)}
+                          placeholder="Pembaikan Kapal"
+                        ></TextField>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Detail Pekerjaan
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <TextField
+                          size="small"
+                          value={detailPekerjaan}
+                          multiline
+                          type="number"
+                          fullWidth
+                          onChange={(e) => setDetailPekerjaan(e.target.value)}
+                          placeholder=""
+                        ></TextField>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Nama Pekerja
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <Select
+                          labelId="demo-simple-select-label-2"
+                          id="demo-simple-select-2"
+                          displayEmpty
+                          fullWidth
+                          size="small"
+                          value={`${nama}`}
+                          onChange={(e) => setNama(e.target.value)}
+                        >
+                          {pekerja &&
+                            pekerja.map((option) => (
+                              <MenuItem key={option["id"]} value={option["id"]}>
+                                {option["nama"]}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid
+                      item
+                      xs={12}
+                      container
+                      direction={"row"}
+                      justifyContent="flex-end"
+                      alignItems="flex-end"
+                      spacing={2}
                     >
-                      Edit
-                    </Button>
-                  </Grid>
-
-                  <Grid item>
-                    <Button
-                      variant="contained"
-                      onClick={() => {
-                        let obj = {
-                          lokasikerja: namaLokasi,
-                          kordinatx: kordinatX,
-                          kordinaty: kordinatY,
-                        };
-                        let stringifyReq = JSON.stringify(obj);
-                        fetch(`${window.location.origin}/api/lokasi/tambah`, {
-                          method: "POST",
-                          body: stringifyReq,
-                        })
-                          .then((resp) => resp.json())
-                          .then((response) => {
-                            console.log(response);
-                            if (response.status == 200) {
-                              if (response.data == "Data Sudah Pernah Ada") {
-                                alert(response.data);
-                              } else {
-                                alert(response.data);
-                                Router.reload();
+                      <Grid item>
+                        <Button
+                          variant="contained"
+                          color="warning"
+                          onClick={() => {
+                            let obj = {
+                              id: Id,
+                              nama_pekerjaan: namaPekerjaan,
+                              detail: detailPekerjaan,
+                              id_pekerja: nama,
+                            };
+                            let stringifyReq = JSON.stringify(obj);
+                            fetch(
+                              `${window.location.origin}/api/pekerjaan/edit`,
+                              {
+                                method: "POST",
+                                body: stringifyReq,
                               }
-                            } else {
-                              alert("!! ERROR " + response.data);
-                            }
-                          })
-                          .catch(function (error) {
-                            console.log(error);
-                          });
-                      }}
-                    >
-                      Tambah
-                    </Button>
+                            )
+                              .then((resp) => resp.json())
+                              .then((response) => {
+                                console.log(response);
+                                if (response.status == 200) {
+                                  alert("Data Update.!!");
+                                  Router.reload();
+                                } else {
+                                  alert("!! ERROR " + response.data);
+                                }
+                              })
+                              .catch(function (error) {
+                                console.log(error);
+                              });
+                          }}
+                        >
+                          Edit
+                        </Button>
+                      </Grid>
+
+                      <Grid item>
+                        <Button
+                          variant="contained"
+                          onClick={() => {
+                            let obj = {
+                              nama_pekerjaan: namaPekerjaan,
+                              detail: detailPekerjaan,
+                              id_pekerja: nama,
+                            };
+                            let stringifyReq = JSON.stringify(obj);
+                            fetch(
+                              `${window.location.origin}/api/pekerjaan/tambah`,
+                              {
+                                method: "POST",
+                                body: stringifyReq,
+                              }
+                            )
+                              .then((resp) => resp.json())
+                              .then((response) => {
+                                console.log(response);
+                                if (response.status == 200) {
+                                  if (
+                                    response.data == "Data Sudah Pernah Ada"
+                                  ) {
+                                    alert(response.data);
+                                  } else {
+                                    alert(response.data);
+                                    Router.reload();
+                                  }
+                                } else {
+                                  alert("!! ERROR " + response.data);
+                                }
+                              })
+                              .catch(function (error) {
+                                console.log(error);
+                              });
+                          }}
+                        >
+                          Tambah
+                        </Button>
+                      </Grid>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Grid>
+                </AccordionDetails>
+              </Accordion>
             </Card>
           </Grid>
+          <Grid item xs={12}>
+            <Card>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                  style={{ backgroundColor: "#0486cfa1" }}
+                >
+                  <Typography>Filters</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid
+                    container
+                    direction={"row"}
+                    style={{ padding: 20 }}
+                    spacing={1}
+                  >
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Nama
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <Select
+                          labelId="demo-simple-select-label-2"
+                          id="demo-simple-select-2"
+                          displayEmpty
+                          fullWidth
+                          size="small"
+                          value={`${nama}`}
+                          onChange={(e) => setNama(e.target.value)}
+                        >
+                          {pekerja &&
+                            pekerja.map((option) => (
+                              <MenuItem key={option["id"]} value={option["id"]}>
+                                {option["nama"]}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Tempat Kerja
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          displayEmpty
+                          fullWidth
+                          size="small"
+                          value={`${lokasikerja}`}
+                          onChange={(e) => setLokasiKerja(e.target.value)}
+                        >
+                          {listlokasikerja &&
+                            listlokasikerja.map((option) => (
+                              <MenuItem
+                                key={option["NamaLokasiKerja"]}
+                                value={option["NamaLokasiKerja"]}
+                              >
+                                {option["NamaLokasiKerja"]}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Tanggal Pekerjaan
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                          <DesktopDatePicker
+                            inputFormat="MM/dd/yyyy"
+                            maxDate={Date.now()}
+                            fullWidth
+                            value={created_at}
+                            onChange={handleCreated_at}
+                            renderInput={(params) => <TextField {...params} />}
+                          />
+                        </LocalizationProvider>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid item xs={12} container direction={"row"}>
+                      {" "}
+                      <Grid item xs={4}>
+                        {" "}
+                        Status Pekerjaan
+                      </Grid>
+                      <Grid item xs={5}>
+                        {" "}
+                        <Select
+                          labelId="demo-simple-select-label"
+                          id="demo-simple-select"
+                          displayEmpty
+                          fullWidth
+                          size="small"
+                          value={`${status}`}
+                          onChange={(e) => setStatus(e.target.value)}
+                        >
+                          {statuspekerjaan &&
+                            statuspekerjaan.map((option) => (
+                              <MenuItem
+                                key={option["label"]}
+                                value={option["label"]}
+                              >
+                                {option["label"]}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </Grid>
+                    </Grid>{" "}
+                    <Grid
+                      item
+                      xs={12}
+                      container
+                      direction={"row"}
+                      justifyContent="flex-end"
+                      alignItems="flex-end"
+                      spacing={2}
+                    >
+                      <Grid item>
+                        <Button
+                          variant="contained"
+                          color="warning"
+                          onClick={() => {
+                            setId(null);
+                            setNamaPekerjaan(null);
+                            setDetailPekerjaan(null);
+                            setCreated_at(null);
+                            setNama(null);
+                            setStatus(null);
+                            setLokasiKerja(null);
+                            let obj = {
+                              nama: "",
+                              tempat_kerja: "",
+                              tanggal_pekerjaan: "",
+                              status: "",
+                            };
+                            let stringifyReq = JSON.stringify(obj);
+                            fetch(
+                              `${window.location.origin}/api/pekerjaan/list`,
+                              {
+                                method: "POST",
+                                body: stringifyReq,
+                              }
+                            )
+                              .then((resp) => resp.json())
+                              .then((response) => {
+                                if (response.status == 200) {
+                                  setData(response.data);
+                                } else {
+                                  alert("!! ERROR " + response.data);
+                                }
+                              })
+                              .catch(function (error) {
+                                console.log(error);
+                              });
+                          }}
+                        >
+                          Reset
+                        </Button>
+                      </Grid>
 
+                      <Grid item>
+                        <Button
+                          variant="contained"
+                          onClick={() => {
+                            let obj = {
+                              nama: nama,
+                              tempat_kerja: lokasikerja,
+                              tanggal_pekerjaan: created_at,
+                              status: status,
+                            };
+                            let stringifyReq = JSON.stringify(obj);
+                            fetch(
+                              `${window.location.origin}/api/pekerjaan/list`,
+                              {
+                                method: "POST",
+                                body: stringifyReq,
+                              }
+                            )
+                              .then((resp) => resp.json())
+                              .then((response) => {
+                                if (response.status == 200) {
+                                  setData(response.data);
+                                } else {
+                                  alert("!! ERROR " + response.data);
+                                }
+                              })
+                              .catch(function (error) {
+                                console.log(error);
+                              });
+                          }}
+                        >
+                          Filter
+                        </Button>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </AccordionDetails>
+              </Accordion>
+            </Card>
+          </Grid>
           <Grid item xs={12}>
             <Card>
               {" "}
@@ -292,77 +553,107 @@ export default function Pekerjaan(props) {
                   <TableHead style={{ backgroundColor: "#0486cfa1" }}>
                     <TableRow>
                       <TableCell>#</TableCell>
-                      <TableCell align="left">Nama Lokasi</TableCell>
-                      <TableCell align="left">Kordinat x</TableCell>
-                      <TableCell align="left">Kordinat y</TableCell>
+
+                      <TableCell align="left">Nama </TableCell>
+                      <TableCell align="left"> </TableCell>
+                      <TableCell align="left">Nama Pekerjaan</TableCell>
+                      <TableCell align="left">Detail Pekerjaan</TableCell>
+                      <TableCell align="left">Perusahaan </TableCell>
+                      <TableCell align="left">Keterangan</TableCell>
+                      <TableCell align="left">Foto Pekerjaan</TableCell>
+                      <TableCell align="left">Status Pekerjaan</TableCell>
                       <TableCell align="center">Aksi</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {data.map((item, itemIndex) => (
-                      <StyledTableRow
-                        hover
-                        key={itemIndex}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 },
-                        }}
-                      >
-                        <StyledTableCell align="left">
-                          {itemIndex + 1}
-                        </StyledTableCell>
-                        <StyledTableCell component="th" scope="row">
-                          {item.NamaLokasiKerja}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {item.KordinatY}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {item.KordinatX}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          <Button
-                            data-testid={"btn-delete-" + item.id}
-                            onClick={() => {
-                              let obj = {
-                                id: item.id,
-                              };
-                              let stringifyReq = JSON.stringify(obj);
-                              fetch(
-                                `${window.location.origin}/api/lokasi/delete`,
-                                {
-                                  method: "DELETE",
-                                  body: stringifyReq,
-                                }
-                              )
-                                .then((resp) => resp.json())
-                                .then((response) => {
-                                  console.log(response.status);
-                                  if (response.status == 200) {
-                                    alert("data dihapus");
-                                    Router.reload();
+                    {data &&
+                      data.map((item, itemIndex) => (
+                        <StyledTableRow
+                          hover
+                          key={itemIndex}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <StyledTableCell align="left">
+                            {itemIndex + 1}
+                          </StyledTableCell>
+                          <StyledTableCell component="th" scope="row">
+                            {item.Nama}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.Created_at}
+                          </StyledTableCell>
+                          <StyledTableCell component="th" scope="row">
+                            {item.Nama_pekerjaan}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.Detail_Pekerjaan}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.NamaLokasiKerja}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.Keterangan}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.Url_Foto_Pekerjaan}
+                          </StyledTableCell>
+                          <StyledTableCell align="center">
+                            <Chip
+                              label={item.Status_Pekerjaan}
+                              style={{
+                                color: "white",
+                                backgroundColor:
+                                  item.Status_Pekerjaan == "pending"
+                                    ? "orange"
+                                    : "green",
+                              }}
+                            />
+                          </StyledTableCell>
+                          <StyledTableCell align="center">
+                            <Button
+                              data-testid={"btn-delete-" + item.id}
+                              onClick={() => {
+                                let obj = {
+                                  id: item.id,
+                                };
+                                let stringifyReq = JSON.stringify(obj);
+                                fetch(
+                                  `${window.location.origin}/api/pekerjaan/delete`,
+                                  {
+                                    method: "DELETE",
+                                    body: stringifyReq,
                                   }
-                                })
-                                .catch(function (error) {
-                                  alert(error);
-                                });
-                            }}
-                          >
-                            <DeleteIcon style={{ color: "red" }} />
-                          </Button>
-                          <Button
-                            data-testid={"btn-detail-" + item.id}
-                            onClick={() => {
-                              setId(item.id);
-                              setnamaLokasi(item.NamaLokasiKerja);
-                              setkordinatX(item.KordinatX);
-                              setkordinatY(item.KordinatY);
-                            }}
-                          >
-                            <EditIcon />
-                          </Button>
-                        </StyledTableCell>
-                      </StyledTableRow>
-                    ))}
+                                )
+                                  .then((resp) => resp.json())
+                                  .then((response) => {
+                                    if (response.status == 200) {
+                                      alert("data dihapus");
+                                      Router.reload();
+                                    }
+                                  })
+                                  .catch(function (error) {
+                                    alert(error);
+                                  });
+                              }}
+                            >
+                              <DeleteIcon style={{ color: "red" }} />
+                            </Button>
+                            <Button
+                              data-testid={"btn-detail-" + item.id}
+                              onClick={() => {
+                                setId(item.id);
+                                setNamaPekerjaan(item.Nama_pekerjaan);
+                                setDetailPekerjaan(item.Detail_Pekerjaan);
+                                setNama(item.Id_Pekerja);
+                              }}
+                            >
+                              <EditIcon />
+                            </Button>
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))}
                   </TableBody>
                 </Table>
                 <TableFooter className={classes.footer}>
@@ -390,14 +681,29 @@ export default function Pekerjaan(props) {
   );
 }
 export async function getServerSideProps(context) {
-  var urlEmployers = "http://localhost:8090/lokasikerja";
+  var urlEmployers = "http://api.dinarcahayanegara.com/pekerjaan";
   var resEmployers = await fetch(urlEmployers, {
-    method: "GET",
+    method: "POST",
   });
   const employerList = await resEmployers.json();
+
+  var urlPekerja = "http://api.dinarcahayanegara.com/pekerja";
+  var resPekerja = await fetch(urlPekerja, {
+    method: "GET",
+  });
+  const PekerjaList = await resPekerja.json();
+
+  var urlListLokasi = "http://api.dinarcahayanegara.com/lokasikerja";
+  var resListLokasi = await fetch(urlListLokasi, {
+    method: "GET",
+  });
+  const Listlokasikerja = await resListLokasi.json();
   return {
     props: {
       data: employerList || [],
+      listlokasikerja: Listlokasikerja || [],
+      pekerja: PekerjaList || [],
+      statuspekerjaan: [{ label: "pending" }, { label: "dikerjakan" }],
     },
   };
 }
