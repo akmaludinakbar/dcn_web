@@ -4,7 +4,7 @@ const nextConfig = {
   distDir: "build",
   env: {
     // BASE_URL:'http://localhost:8090' //dev
-    BASE_URL: "http://api.dinarcahayanegara.com", //prod
+    BASE_URL: "https://api.dinarcahayanegara.com", //prod
   },
 };
 
