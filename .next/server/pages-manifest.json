@@ -2,9 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/home/absensi": "pages/home/absensi.js",
-  "/api/absensi/list": "pages/api/absensi/list.js",
-  "/api/lokasi/list": "pages/api/lokasi/list.js",
-  "/api/pekerja/list2": "pages/api/pekerja/list2.js",
+  "/home": "pages/home.js",
   "/api/auth": "pages/api/auth.js"
 }

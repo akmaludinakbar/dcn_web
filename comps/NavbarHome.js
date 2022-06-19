@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import Link from "@mui/material/Link";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
@@ -147,24 +148,29 @@ export default function NavbarHome({ children }) {
         <Divider />
         <List>
           {url.map((text, index) => (
-            <ListItem
-              button
-              onClick={(e) => {
-                settittle(text.name);
-                Router.push(text.path);
-              }}
-              key={text.name}
-              style={
-                text.path != asPath
-                  ? {}
-                  : { backgroundColor: text.path == asPath ? "#d8d8d8" : "" }
-              }
+            <Link
+              href={text.path}
+              style={{ textDecoration: "none", color: "black" }}
             >
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text.name} />
-            </ListItem>
+              <ListItem
+                button
+                onClick={(e) => {
+                  settittle(text.name);
+                  // Router.push(text.path);
+                }}
+                key={text.name}
+                style={
+                  text.path != asPath
+                    ? {}
+                    : { backgroundColor: text.path == asPath ? "#d8d8d8" : "" }
+                }
+              >
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text.name} />
+              </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />

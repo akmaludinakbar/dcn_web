@@ -38,9 +38,9 @@ function MyApp({ Component, pageProps, router }) {
       setIsLoading(false);
     }
   };
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <Layout>
