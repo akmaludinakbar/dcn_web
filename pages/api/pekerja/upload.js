@@ -22,7 +22,7 @@ export default async (req, res) => {
       //   'Content-Type': 'multipart/form-data',
       // }
     };
-    await fetch("http://api.dinarcahayanegara.com/upload", options).then(
+    await fetch("http://localhost:8090/upload", options).then(
       function (res) {
         console.log("kesinsi");
         console.log(res);

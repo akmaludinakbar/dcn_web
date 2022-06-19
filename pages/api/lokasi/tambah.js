@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .post(
       //process.env.USER_LOGIN_PESERTA +
-      "http://api.dinarcahayanegara.com/lokasikerja",
+      "http://localhost:8090/lokasikerja",
       {
         lokasikerja: parm.lokasikerja,
         kordinatx: parm.kordinatx,

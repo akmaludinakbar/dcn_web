@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .post(
       //process.env.USER_LOGIN_PESERTA +
-      "http://api.dinarcahayanegara.com/daftar",
+      "http://localhost:8090/daftar",
       {
         nama: parm.nama,
         nomor_telepon: parm.nomor_telepon,

@@ -7,7 +7,7 @@ export default async (req, res) => {
     .post(
       //process.env.USER_LOGIN_PESERTA +
 
-      "http://api.dinarcahayanegara.com/tambahpekerjaan",
+      "http://localhost:8090/tambahpekerjaan",
       {
         nama_pekerjaan: parm.nama_pekerjaan,
         detail: parm.detail,

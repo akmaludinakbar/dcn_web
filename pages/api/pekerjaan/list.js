@@ -4,7 +4,7 @@ export default async (req, res) => {
   let parm = JSON.parse(req.body);
   let resp = { status: 0 };
   axios
-    .post(`http://api.dinarcahayanegara.com/pekerjaan`, {
+    .post(`http://localhost:8090/pekerjaan`, {
       nama: parm.nama,
       tanggal_pekerjaan: parm.tanggal_pekerjaan,
       tempat_kerja: parm.tempat_kerja,

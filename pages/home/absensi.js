@@ -488,19 +488,19 @@ export default function Absensi(props) {
   );
 }
 export async function getServerSideProps(context) {
-  var urlEmployers = "http://api.dinarcahayanegara.com/absensi";
+  var urlEmployers = "http://localhost:8090/absensi";
   var resEmployers = await fetch(urlEmployers, {
     method: "POST",
   });
   const employerList = await resEmployers.json();
 
-  var urlListLokasi = "http://api.dinarcahayanegara.com/lokasikerja";
+  var urlListLokasi = "http://localhost:8090/lokasikerja";
   var resListLokasi = await fetch(urlListLokasi, {
     method: "GET",
   });
   const Listlokasikerja = await resListLokasi.json();
 
-  var urlListPekerja = "http://api.dinarcahayanegara.com/pekerja";
+  var urlListPekerja = "http://localhost:8090/pekerja";
   var resListPekerja = await fetch(urlListPekerja, {
     method: "GET",
   });

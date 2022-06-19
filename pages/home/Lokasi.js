@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import absoluteUrl from "next-absolute-url";
 import { makeStyles } from "@mui/styles";
 import {
   Typography,
@@ -299,70 +300,71 @@ export default function Lokasi(props) {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {data.map((item, itemIndex) => (
-                      <StyledTableRow
-                        hover
-                        key={itemIndex}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 },
-                        }}
-                      >
-                        <StyledTableCell align="left">
-                          {itemIndex + 1}
-                        </StyledTableCell>
-                        <StyledTableCell component="th" scope="row">
-                          {item.NamaLokasiKerja}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {item.KordinatY}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {item.KordinatX}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          <Button
-                            data-testid={"btn-delete-" + item.id}
-                            onClick={() => {
-                              let obj = {
-                                id: item.id,
-                              };
-                              let stringifyReq = JSON.stringify(obj);
-                              fetch(
-                                `${window.location.origin}/api/lokasi/delete`,
-                                {
-                                  method: "DELETE",
-                                  body: stringifyReq,
-                                }
-                              )
-                                .then((resp) => resp.json())
-                                .then((response) => {
-                                  console.log(response.status);
-                                  if (response.status == 200) {
-                                    alert("data dihapus");
-                                    Router.reload();
+                    {data &&
+                      data.map((item, itemIndex) => (
+                        <StyledTableRow
+                          hover
+                          key={itemIndex}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <StyledTableCell align="left">
+                            {itemIndex + 1}
+                          </StyledTableCell>
+                          <StyledTableCell component="th" scope="row">
+                            {item.NamaLokasiKerja}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.KordinatY}
+                          </StyledTableCell>
+                          <StyledTableCell align="left">
+                            {item.KordinatX}
+                          </StyledTableCell>
+                          <StyledTableCell align="center">
+                            <Button
+                              data-testid={"btn-delete-" + item.id}
+                              onClick={() => {
+                                let obj = {
+                                  id: item.id,
+                                };
+                                let stringifyReq = JSON.stringify(obj);
+                                fetch(
+                                  `${window.location.origin}/api/lokasi/delete`,
+                                  {
+                                    method: "DELETE",
+                                    body: stringifyReq,
                                   }
-                                })
-                                .catch(function (error) {
-                                  alert(error);
-                                });
-                            }}
-                          >
-                            <DeleteIcon style={{ color: "red" }} />
-                          </Button>
-                          <Button
-                            data-testid={"btn-detail-" + item.id}
-                            onClick={() => {
-                              setId(item.id);
-                              setnamaLokasi(item.NamaLokasiKerja);
-                              setkordinatX(item.KordinatX);
-                              setkordinatY(item.KordinatY);
-                            }}
-                          >
-                            <EditIcon />
-                          </Button>
-                        </StyledTableCell>
-                      </StyledTableRow>
-                    ))}
+                                )
+                                  .then((resp) => resp.json())
+                                  .then((response) => {
+                                    console.log(response.status);
+                                    if (response.status == 200) {
+                                      alert("data dihapus");
+                                      Router.reload();
+                                    }
+                                  })
+                                  .catch(function (error) {
+                                    alert(error);
+                                  });
+                              }}
+                            >
+                              <DeleteIcon style={{ color: "red" }} />
+                            </Button>
+                            <Button
+                              data-testid={"btn-detail-" + item.id}
+                              onClick={() => {
+                                setId(item.id);
+                                setnamaLokasi(item.NamaLokasiKerja);
+                                setkordinatX(item.KordinatX);
+                                setkordinatY(item.KordinatY);
+                              }}
+                            >
+                              <EditIcon />
+                            </Button>
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))}
                   </TableBody>
                 </Table>
                 <TableFooter className={classes.footer}>
@@ -389,15 +391,18 @@ export default function Lokasi(props) {
     </>
   );
 }
-export async function getServerSideProps(context) {
-  var urlEmployers = "http://api.dinarcahayanegara.com/lokasikerja";
+export async function getServerSideProps({ req, query }) {
+  const { protocol, host } = absoluteUrl(req);
+  var urlEmployers = `${protocol}//${host}/api/lokasi/list`;
   var resEmployers = await fetch(urlEmployers, {
     method: "GET",
   });
   const employerList = await resEmployers.json();
+  // console.log(employerList);
+  // console.log(urlEmployers);
   return {
     props: {
-      data: employerList || [],
+      data: employerList.data || [],
     },
   };
 }
