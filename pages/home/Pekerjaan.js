@@ -4,6 +4,7 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { format } from "date-fns";
+import absoluteUrl from "next-absolute-url";
 import {
   Typography,
   Grid,
@@ -680,29 +681,38 @@ export default function Pekerjaan(props) {
     </>
   );
 }
-export async function getServerSideProps(context) {
-  var urlEmployers = process.env.BASE_URL + "/pekerjaan";
+export async function getServerSideProps({ req }) {
+  const { protocol, host } = absoluteUrl(req);
+  let obj = {
+    nama: "",
+    tempat_kerja: "",
+    tanggal_pekerjaan: "",
+    status: "",
+  };
+  let stringifyReq = JSON.stringify(obj);
+  var urlEmployers = `${protocol}//${host}/api/pekerjaan/list`;
   var resEmployers = await fetch(urlEmployers, {
     method: "POST",
+    body: stringifyReq,
   });
   const employerList = await resEmployers.json();
 
-  var urlPekerja = process.env.BASE_URL + "/pekerja";
+  var urlPekerja = `${protocol}//${host}/api/pekerja/list2`;
   var resPekerja = await fetch(urlPekerja, {
     method: "GET",
   });
   const PekerjaList = await resPekerja.json();
 
-  var urlListLokasi = process.env.BASE_URL + "/lokasikerja";
+  var urlListLokasi = `${protocol}//${host}/api/lokasi/list`;
   var resListLokasi = await fetch(urlListLokasi, {
     method: "GET",
   });
   const Listlokasikerja = await resListLokasi.json();
   return {
     props: {
-      data: employerList || [],
-      listlokasikerja: Listlokasikerja || [],
-      pekerja: PekerjaList || [],
+      data: employerList.data || [],
+      listlokasikerja: Listlokasikerja.data || [],
+      pekerja: PekerjaList.data || [],
       statuspekerjaan: [{ label: "pending" }, { label: "dikerjakan" }],
     },
   };

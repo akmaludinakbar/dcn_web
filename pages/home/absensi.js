@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
+import absoluteUrl from "next-absolute-url";
 import {
   Typography,
   Grid,
@@ -487,20 +488,21 @@ export default function Absensi(props) {
     </>
   );
 }
-export async function getServerSideProps(context) {
-  var urlEmployers = process.env.BASE_URL + "/absensi";
+export async function getServerSideProps({ req }) {
+  const { protocol, host } = absoluteUrl(req);
+  var urlEmployers = `${protocol}//${host}/api/absensi/list`;
   var resEmployers = await fetch(urlEmployers, {
-    method: "POST",
+    method: "GET",
   });
   const employerList = await resEmployers.json();
 
-  var urlListLokasi = process.env.BASE_URL + "/lokasikerja";
+  var urlListLokasi = `${protocol}//${host}/api/lokasi/list`;
   var resListLokasi = await fetch(urlListLokasi, {
     method: "GET",
   });
   const Listlokasikerja = await resListLokasi.json();
 
-  var urlListPekerja = process.env.BASE_URL + "/pekerja";
+  var urlListPekerja = `${protocol}//${host}/api/pekerja/list2`;
   var resListPekerja = await fetch(urlListPekerja, {
     method: "GET",
   });
@@ -508,9 +510,9 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      data: employerList || [],
-      listlokasikerja: Listlokasikerja || [],
-      listnamapegawai: listnamapegawai || [],
+      data: employerList.data || [],
+      listlokasikerja: Listlokasikerja.data || [],
+      listnamapegawai: listnamapegawai.data || [],
     },
   };
 }

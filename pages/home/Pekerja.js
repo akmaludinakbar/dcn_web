@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
+import absoluteUrl from "next-absolute-url";
 import moment from "moment";
 import {
-  Typography,
   Grid,
   Button,
   Card,
@@ -17,7 +17,6 @@ import {
   TableHead,
   TableRow,
   TableCell,
-  Autocomplete,
   Avatar,
   TableBody,
 } from "@mui/material";
@@ -260,11 +259,12 @@ export default function Pekerja(props) {
                           value={`${idlokasikerja}`}
                           onChange={(e) => setIdlokasikerja(e.target.value)}
                         >
-                          {listlokasikerja.map((option) => (
-                            <MenuItem key={option["id"]} value={option["id"]}>
-                              {option["NamaLokasiKerja"]}
-                            </MenuItem>
-                          ))}
+                          {listlokasikerja &&
+                            listlokasikerja.map((option) => (
+                              <MenuItem key={option["id"]} value={option["id"]}>
+                                {option["NamaLokasiKerja"]}
+                              </MenuItem>
+                            ))}
                         </Select>
                       </Grid>
                     </Grid>{" "}
@@ -552,22 +552,31 @@ export default function Pekerja(props) {
     </>
   );
 }
-export async function getServerSideProps(context) {
-  var urlEmployers = process.env.BASE_URL + "/pekerja";
+export async function getServerSideProps({ req }) {
+  const { protocol, host } = absoluteUrl(req);
+  // var urlEmployers = `${protocol}//${host}/api/lokasi/list`;
+  // var resEmployers = await fetch(urlEmployers, {
+  //   method: "GET",
+  // });
+  // const employerList = await resEmployers.json();
+
+  var urlEmployers = `${protocol}//${host}/api/pekerja/list2`;
   var resEmployers = await fetch(urlEmployers, {
     method: "GET",
   });
+
   const employerList = await resEmployers.json();
 
-  var urlDatareferensiLokasiPekerja = process.env.BASE_URL + "/lokasikerja";
+  var urlDatareferensiLokasiPekerja = `${protocol}//${host}/api/lokasi/list`;
   var resDatareferensi = await fetch(urlDatareferensiLokasiPekerja, {
     method: "GET",
   });
   const LokasiKerjaList = await resDatareferensi.json();
+
   return {
     props: {
-      data: employerList || [],
-      listlokasikerja: LokasiKerjaList || [],
+      data: employerList.data || [],
+      listlokasikerja: LokasiKerjaList.data || [],
     },
   };
 }
