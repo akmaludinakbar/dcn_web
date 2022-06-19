@@ -5,33 +5,55 @@ exports.id = 559;
 exports.ids = [559];
 exports.modules = {
 
-/***/ 8797:
+/***/ 4084:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Pekerja),
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mui_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9484);
-/* harmony import */ var _mui_styles__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mui_styles__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5692);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mui_material__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3188);
-/* harmony import */ var _mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _comps_LayoutHome__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(968);
-/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8442);
-/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _mui_material_TableCell__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5612);
-/* harmony import */ var _mui_material_TableCell__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1853);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _mui_icons_material_Edit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6902);
-/* harmony import */ var _mui_icons_material_Edit__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_mui_icons_material_Edit__WEBPACK_IMPORTED_MODULE_9__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Pekerja),
+  "getServerSideProps": () => (/* binding */ getServerSideProps)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+// EXTERNAL MODULE: external "@mui/styles"
+var styles_ = __webpack_require__(9484);
+;// CONCATENATED MODULE: external "moment"
+const external_moment_namespaceObject = require("moment");
+var external_moment_default = /*#__PURE__*/__webpack_require__.n(external_moment_namespaceObject);
+// EXTERNAL MODULE: external "@mui/material"
+var material_ = __webpack_require__(5692);
+;// CONCATENATED MODULE: external "@mui/icons-material/UploadFile"
+const UploadFile_namespaceObject = require("@mui/icons-material/UploadFile");
+var UploadFile_default = /*#__PURE__*/__webpack_require__.n(UploadFile_namespaceObject);
+// EXTERNAL MODULE: external "@mui/icons-material/Delete"
+var Delete_ = __webpack_require__(3188);
+var Delete_default = /*#__PURE__*/__webpack_require__.n(Delete_);
+// EXTERNAL MODULE: ./comps/LayoutHome.js + 1 modules
+var LayoutHome = __webpack_require__(968);
+// EXTERNAL MODULE: external "@mui/material/styles"
+var material_styles_ = __webpack_require__(8442);
+// EXTERNAL MODULE: external "@mui/material/TableCell"
+var TableCell_ = __webpack_require__(5612);
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__(1853);
+var router_default = /*#__PURE__*/__webpack_require__.n(router_);
+// EXTERNAL MODULE: external "@mui/x-date-pickers/DesktopDatePicker"
+var DesktopDatePicker_ = __webpack_require__(4764);
+// EXTERNAL MODULE: external "@mui/icons-material/Edit"
+var Edit_ = __webpack_require__(6902);
+var Edit_default = /*#__PURE__*/__webpack_require__.n(Edit_);
+// EXTERNAL MODULE: external "@mui/x-date-pickers/LocalizationProvider"
+var LocalizationProvider_ = __webpack_require__(5753);
+// EXTERNAL MODULE: external "@mui/x-date-pickers/AdapterDateFns"
+var AdapterDateFns_ = __webpack_require__(4046);
+;// CONCATENATED MODULE: ./pages/home/Pekerja.js
 
 
 
@@ -42,26 +64,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function createData(name, calories, fat, carbs, protein) {
-    return {
-        name,
-        calories,
-        fat,
-        carbs,
-        protein
-    };
-}
-const StyledTableCell = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__.styled)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableCell)(({ theme  })=>({
-        [`&.${_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_7__.tableCellClasses.head}`]: {
+
+
+
+
+
+const StyledTableCell = (0,material_styles_.styled)(material_.TableCell)(({ theme  })=>({
+        [`&.${TableCell_.tableCellClasses.head}`]: {
             backgroundColor: theme.palette.common.black,
             color: theme.palette.common.white
         },
-        [`&.${_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_7__.tableCellClasses.body}`]: {
+        [`&.${TableCell_.tableCellClasses.body}`]: {
             fontSize: 14
         }
     })
 );
-const StyledTableRow = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__.styled)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableRow)(({ theme  })=>({
+const StyledTableRow = (0,material_styles_.styled)(material_.TableRow)(({ theme  })=>({
         "&:nth-of-type(odd)": {
             backgroundColor: theme.palette.action.hover
         },
@@ -71,7 +89,7 @@ const StyledTableRow = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__.styl
         }
     })
 );
-const useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_2__.makeStyles)((theme)=>({
+const useStyles = (0,styles_.makeStyles)((theme)=>({
         table: {
             boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.1);"
         },
@@ -141,24 +159,77 @@ const useStyles = (0,_mui_styles__WEBPACK_IMPORTED_MODULE_2__.makeStyles)((theme
     })
 );
 function Pekerja(props) {
-    const { data  } = props;
-    const { 0: Id , 1: setId  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)();
-    const { 0: namaLokasi , 1: setnamaLokasi  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
-    const { 0: kordinatX , 1: setkordinatX  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
-    const { 0: kordinatY , 1: setkordinatY  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+    const { data , listlokasikerja  } = props;
+    const { 0: Id , 1: setId  } = (0,external_react_.useState)();
+    const { 0: nama , 1: setNama  } = (0,external_react_.useState)("");
+    const { 0: idlokasikerja , 1: setIdlokasikerja  } = (0,external_react_.useState)(undefined);
+    const { 0: telepon , 1: setTelepon  } = (0,external_react_.useState)("");
+    const { 0: idimg , 1: setIdimg  } = (0,external_react_.useState)("");
+    const { 0: urlfoto , 1: setUrlfoto  } = (0,external_react_.useState)("");
+    const fileInput = external_react_default().useRef();
     const classes = useStyles();
-    return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+    const [tanggallahir, setTanggallahir] = external_react_default().useState(null);
+    const handleChange = (newValue)=>{
+        var datum = Date.parse(newValue);
+        setTanggallahir(`${datum / 1000}`);
+    };
+    const setUpload = async (files, id, url_foto)=>{
+        // var imagedata = files[0];
+        // console.log("keinsi");
+        // console.log(imagedata);
+        // var data = new FormData();
+        // data.append("File", imagedata);
+        const formData = new FormData();
+        formData.append("url_foto", url_foto);
+        formData.append("file", files);
+        const options = {
+            method: "POST",
+            body: formData
+        };
+        await fetch(`http://api.dinarcahayanegara.com/upload/${id}`, options).then(function(res) {
+            alert("Tes");
+            console.log(res);
+        // if (res.ok) {
+        //   alert("Perfect! ");
+        // } else if (res.status == 401) {
+        //   alert("Oops! ");
+        // }
+        }, function(e) {
+            console.log(e);
+            router_default().reload();
+            alert("Success");
+        });
+    };
+    const itemList = [
+        {
+            value: "Car Winner",
+            id: "casinofob"
+        },
+        {
+            value: "PD 556",
+            id: "-2084633992"
+        },
+        {
+            value: "Cluckin Drink",
+            id: "cbdrink"
+        },
+        {
+            value: "Blink",
+            id: "spellbook-blink"
+        }, 
+    ];
+    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
                 container: true,
                 direction: "row",
                 spacing: 3,
                 children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                    /*#__PURE__*/ jsx_runtime_.jsx(material_.Grid, {
                         item: true,
                         xs: 12,
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Card, {
-                            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Card, {
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
                                 container: true,
                                 direction: "row",
                                 style: {
@@ -166,108 +237,186 @@ function Pekerja(props) {
                                 },
                                 spacing: 1,
                                 children: [
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
                                         item: true,
-                                        xs: 12,
                                         container: true,
                                         direction: "row",
+                                        xs: 12,
+                                        spacing: 1,
                                         children: [
-                                            " ",
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
                                                 item: true,
-                                                xs: 4,
+                                                xs: 10,
+                                                container: true,
+                                                direction: "row",
+                                                spacing: 1,
                                                 children: [
+                                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                        item: true,
+                                                        xs: 12,
+                                                        container: true,
+                                                        direction: "row",
+                                                        children: [
+                                                            " ",
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: 4,
+                                                                children: [
+                                                                    " ",
+                                                                    "Nama"
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: true,
+                                                                children: [
+                                                                    " ",
+                                                                    /*#__PURE__*/ jsx_runtime_.jsx(material_.TextField, {
+                                                                        size: "small",
+                                                                        fullWidth: true,
+                                                                        value: nama,
+                                                                        onChange: (e)=>setNama(e.target.value)
+                                                                        ,
+                                                                        placeholder: "Robert"
+                                                                    })
+                                                                ]
+                                                            })
+                                                        ]
+                                                    }),
                                                     " ",
-                                                    "Nama Lokasi Kerja"
+                                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                        item: true,
+                                                        xs: 12,
+                                                        container: true,
+                                                        direction: "row",
+                                                        children: [
+                                                            " ",
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: 4,
+                                                                children: [
+                                                                    " ",
+                                                                    "Nomor Telepon"
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: true,
+                                                                children: [
+                                                                    " ",
+                                                                    /*#__PURE__*/ jsx_runtime_.jsx(material_.TextField, {
+                                                                        size: "small",
+                                                                        value: telepon,
+                                                                        type: "number",
+                                                                        fullWidth: true,
+                                                                        onChange: (e)=>setTelepon(e.target.value)
+                                                                        ,
+                                                                        placeholder: "0812256372123"
+                                                                    })
+                                                                ]
+                                                            })
+                                                        ]
+                                                    }),
+                                                    " ",
+                                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                        item: true,
+                                                        xs: 12,
+                                                        container: true,
+                                                        direction: "row",
+                                                        children: [
+                                                            " ",
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: 4,
+                                                                children: [
+                                                                    " ",
+                                                                    "Tujuan Penempatan"
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: true,
+                                                                children: [
+                                                                    " ",
+                                                                    /*#__PURE__*/ jsx_runtime_.jsx(material_.Select, {
+                                                                        labelId: "demo-simple-select-label",
+                                                                        id: "demo-simple-select",
+                                                                        displayEmpty: true,
+                                                                        fullWidth: true,
+                                                                        size: "small",
+                                                                        value: `${idlokasikerja}`,
+                                                                        onChange: (e)=>setIdlokasikerja(e.target.value)
+                                                                        ,
+                                                                        children: listlokasikerja.map((option)=>/*#__PURE__*/ jsx_runtime_.jsx(material_.MenuItem, {
+                                                                                value: option["id"],
+                                                                                children: option["NamaLokasiKerja"]
+                                                                            }, option["id"])
+                                                                        )
+                                                                    })
+                                                                ]
+                                                            })
+                                                        ]
+                                                    }),
+                                                    " ",
+                                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                        item: true,
+                                                        xs: 12,
+                                                        container: true,
+                                                        direction: "row",
+                                                        children: [
+                                                            " ",
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: 4,
+                                                                children: [
+                                                                    " ",
+                                                                    "Tanggal Lahir"
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
+                                                                item: true,
+                                                                xs: true,
+                                                                children: [
+                                                                    " ",
+                                                                    /*#__PURE__*/ jsx_runtime_.jsx(LocalizationProvider_.LocalizationProvider, {
+                                                                        dateAdapter: AdapterDateFns_.AdapterDateFns,
+                                                                        children: /*#__PURE__*/ jsx_runtime_.jsx(DesktopDatePicker_.DesktopDatePicker, {
+                                                                            inputFormat: "MM/dd/yyyy",
+                                                                            fullWidth: true,
+                                                                            maxDate: Date.now(),
+                                                                            value: tanggallahir == null ? null : `${external_moment_default().unix(tanggallahir)}`,
+                                                                            onChange: handleChange,
+                                                                            renderInput: (params)=>/*#__PURE__*/ jsx_runtime_.jsx(material_.TextField, {
+                                                                                    ...params
+                                                                                })
+                                                                        })
+                                                                    })
+                                                                ]
+                                                            })
+                                                        ]
+                                                    }),
+                                                    " "
                                                 ]
                                             }),
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.Grid, {
                                                 item: true,
-                                                xs: 5,
-                                                children: [
-                                                    " ",
-                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TextField, {
-                                                        size: "small",
-                                                        fullWidth: true,
-                                                        value: namaLokasi,
-                                                        onChange: (e)=>setnamaLokasi(e.target.value)
-                                                        ,
-                                                        placeholder: "Bank Mandiri Batang"
-                                                    })
-                                                ]
+                                                xs: 2,
+                                                style: {
+                                                    paddingLeft: "3vw",
+                                                    paddingTop: 0
+                                                },
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Avatar, {
+                                                    alt: "Remy Sharp",
+                                                    sx: {
+                                                        width: 150,
+                                                        height: 150
+                                                    },
+                                                    src: urlfoto
+                                                })
                                             })
                                         ]
                                     }),
-                                    " ",
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
-                                        item: true,
-                                        xs: 12,
-                                        container: true,
-                                        direction: "row",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
-                                                item: true,
-                                                xs: 4,
-                                                children: [
-                                                    " ",
-                                                    "Titik Kordinat X"
-                                                ]
-                                            }),
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
-                                                item: true,
-                                                xs: 5,
-                                                children: [
-                                                    " ",
-                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TextField, {
-                                                        size: "small",
-                                                        value: kordinatX,
-                                                        type: "number",
-                                                        fullWidth: true,
-                                                        onChange: (e)=>setkordinatX(e.target.value)
-                                                        ,
-                                                        placeholder: "-6.9054885671866995"
-                                                    })
-                                                ]
-                                            })
-                                        ]
-                                    }),
-                                    " ",
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
-                                        item: true,
-                                        xs: 12,
-                                        container: true,
-                                        direction: "row",
-                                        children: [
-                                            " ",
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
-                                                item: true,
-                                                xs: 4,
-                                                children: [
-                                                    " ",
-                                                    "Titik Kordinat Y"
-                                                ]
-                                            }),
-                                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
-                                                item: true,
-                                                xs: 5,
-                                                children: [
-                                                    " ",
-                                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TextField, {
-                                                        size: "small",
-                                                        fullWidth: true,
-                                                        type: "number",
-                                                        onChange: (e)=>setkordinatY(e.target.value)
-                                                        ,
-                                                        value: kordinatY,
-                                                        placeholder: "109.7180930661242"
-                                                    })
-                                                ]
-                                            })
-                                        ]
-                                    }),
-                                    " ",
-                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Grid, {
                                         item: true,
                                         xs: 12,
                                         container: true,
@@ -276,20 +425,25 @@ function Pekerja(props) {
                                         alignItems: "flex-end",
                                         spacing: 2,
                                         children: [
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.Grid, {
                                                 item: true,
-                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Button, {
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Button, {
                                                     variant: "contained",
                                                     color: "warning",
                                                     onClick: ()=>{
+                                                        // nama: parm.nama,
+                                                        // nomor_telepon: parm.nomor_telepon,
+                                                        // id_lokasi_kerja: parm.id_lokasi_kerja,
+                                                        // tgl_lahir:parm.tgl_lahir
                                                         let obj = {
                                                             id: Id,
-                                                            lokasikerja: namaLokasi,
-                                                            kordinatx: kordinatX,
-                                                            kordinaty: kordinatY
+                                                            nama: nama,
+                                                            nomor_telepon: telepon,
+                                                            id_lokasi_kerja: idlokasikerja,
+                                                            tgl_lahir: tanggallahir
                                                         };
                                                         let stringifyReq = JSON.stringify(obj);
-                                                        fetch(`${window.location.origin}/api/lokasi/edit`, {
+                                                        fetch(`${window.location.origin}/api/pekerja/edit`, {
                                                             method: "POST",
                                                             body: stringifyReq
                                                         }).then((resp)=>resp.json()
@@ -297,7 +451,7 @@ function Pekerja(props) {
                                                             console.log(response);
                                                             if (response.status == 200) {
                                                                 alert("Data Update.!!");
-                                                                next_router__WEBPACK_IMPORTED_MODULE_8___default().reload();
+                                                                router_default().reload();
                                                             } else {
                                                                 alert("!! ERROR " + response.data);
                                                             }
@@ -308,18 +462,24 @@ function Pekerja(props) {
                                                     children: "Edit"
                                                 })
                                             }),
-                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.Grid, {
                                                 item: true,
-                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Button, {
+                                                children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Button, {
                                                     variant: "contained",
                                                     onClick: ()=>{
                                                         let obj = {
-                                                            lokasikerja: namaLokasi,
-                                                            kordinatx: kordinatX,
-                                                            kordinaty: kordinatY
+                                                            nama: nama.replace(/\s?$/, ""),
+                                                            nomor_telepon: telepon,
+                                                            id_lokasi_kerja: idlokasikerja,
+                                                            tgl_lahir: tanggallahir
                                                         };
                                                         let stringifyReq = JSON.stringify(obj);
-                                                        fetch(`${window.location.origin}/api/lokasi/tambah`, {
+                                                        //                       nama := keyVal["nama"]
+                                                        // nomor_telepon := keyVal["nomor_telepon"]
+                                                        // id_lokasi_kerja := keyVal["id_lokasi_kerja"]
+                                                        // password := keyVal["password"]
+                                                        // tgl_lahir := keyVal["tgl_lahir"]
+                                                        fetch(`${window.location.origin}/api/pekerja/tambah`, {
                                                             method: "POST",
                                                             body: stringifyReq
                                                         }).then((resp)=>resp.json()
@@ -330,7 +490,7 @@ function Pekerja(props) {
                                                                     alert(response.data);
                                                                 } else {
                                                                     alert(response.data);
-                                                                    next_router__WEBPACK_IMPORTED_MODULE_8___default().reload();
+                                                                    router_default().reload();
                                                                 }
                                                             } else {
                                                                 alert("!! ERROR " + response.data);
@@ -348,16 +508,16 @@ function Pekerja(props) {
                             })
                         })
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Grid, {
+                    /*#__PURE__*/ jsx_runtime_.jsx(material_.Grid, {
                         item: true,
                         xs: 12,
-                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Card, {
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Card, {
                             children: [
                                 " ",
-                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableContainer, {
-                                    component: _mui_material__WEBPACK_IMPORTED_MODULE_3__.Paper,
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.TableContainer, {
+                                    component: material_.Paper,
                                     children: [
-                                        /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Table, {
+                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Table, {
                                             sx: {
                                                 minWidth: 650
                                             },
@@ -365,36 +525,47 @@ function Pekerja(props) {
                                             "aria-label": "simple table",
                                             className: classes.table,
                                             children: [
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableHead, {
+                                                /*#__PURE__*/ jsx_runtime_.jsx(material_.TableHead, {
                                                     style: {
                                                         backgroundColor: "#0486cfa1"
                                                     },
-                                                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableRow, {
+                                                    children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.TableRow, {
                                                         children: [
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableCell, {
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
                                                                 children: "#"
                                                             }),
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableCell, {
-                                                                align: "left",
-                                                                children: "Nama Lokasi"
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
+                                                                align: "left"
                                                             }),
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableCell, {
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
                                                                 align: "left",
-                                                                children: "Kordinat x"
+                                                                children: "Nama "
                                                             }),
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableCell, {
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
                                                                 align: "left",
-                                                                children: "Kordinat y"
+                                                                children: "Username "
                                                             }),
-                                                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableCell, {
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
+                                                                align: "left",
+                                                                children: "Telepon"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
+                                                                align: "left",
+                                                                children: "Penempatan"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
+                                                                align: "left",
+                                                                children: "Tgl Lahir"
+                                                            }),
+                                                            /*#__PURE__*/ jsx_runtime_.jsx(material_.TableCell, {
                                                                 align: "center",
                                                                 children: "Aksi"
                                                             })
                                                         ]
                                                     })
                                                 }),
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableBody, {
-                                                    children: data.map((item, itemIndex)=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(StyledTableRow, {
+                                                /*#__PURE__*/ jsx_runtime_.jsx(material_.TableBody, {
+                                                    children: data.map((item, itemIndex)=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)(StyledTableRow, {
                                                             hover: true,
                                                             sx: {
                                                                 "&:last-child td, &:last-child th": {
@@ -402,34 +573,52 @@ function Pekerja(props) {
                                                                 }
                                                             },
                                                             children: [
-                                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(StyledTableCell, {
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
                                                                     align: "left",
                                                                     children: itemIndex + 1
                                                                 }),
-                                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(StyledTableCell, {
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
                                                                     component: "th",
                                                                     scope: "row",
+                                                                    children: /*#__PURE__*/ jsx_runtime_.jsx(material_.Avatar, {
+                                                                        alt: "Remy Sharp",
+                                                                        src: `http://api.dinarcahayanegara.com/${item.url_foto}`
+                                                                    })
+                                                                }),
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
+                                                                    component: "th",
+                                                                    scope: "row",
+                                                                    children: item.nama
+                                                                }),
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
+                                                                    component: "th",
+                                                                    scope: "row",
+                                                                    children: item.username
+                                                                }),
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
+                                                                    component: "th",
+                                                                    scope: "row",
+                                                                    children: item.nomor_telepon
+                                                                }),
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
+                                                                    align: "left",
                                                                     children: item.NamaLokasiKerja
                                                                 }),
-                                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(StyledTableCell, {
+                                                                /*#__PURE__*/ jsx_runtime_.jsx(StyledTableCell, {
                                                                     align: "left",
-                                                                    children: item.KordinatY
+                                                                    children: item.tgllahir == "-" ? null : `${external_moment_default().unix(item.tgllahir).format("MM-DD-YYYY")}`
                                                                 }),
-                                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(StyledTableCell, {
-                                                                    align: "left",
-                                                                    children: item.KordinatX
-                                                                }),
-                                                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(StyledTableCell, {
+                                                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(StyledTableCell, {
                                                                     align: "center",
                                                                     children: [
-                                                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Button, {
+                                                                        /*#__PURE__*/ jsx_runtime_.jsx(material_.Button, {
                                                                             "data-testid": "btn-delete-" + item.id,
                                                                             onClick: ()=>{
                                                                                 let obj = {
                                                                                     id: item.id
                                                                                 };
                                                                                 let stringifyReq = JSON.stringify(obj);
-                                                                                fetch(`${window.location.origin}/api/lokasi/delete`, {
+                                                                                fetch(`${window.location.origin}/api/pekerja/delete`, {
                                                                                     method: "DELETE",
                                                                                     body: stringifyReq
                                                                                 }).then((resp)=>resp.json()
@@ -437,27 +626,49 @@ function Pekerja(props) {
                                                                                     console.log(response.status);
                                                                                     if (response.status == 200) {
                                                                                         alert("data dihapus");
-                                                                                        next_router__WEBPACK_IMPORTED_MODULE_8___default().reload();
+                                                                                        router_default().reload();
                                                                                     }
                                                                                 }).catch(function(error) {
                                                                                     alert(error);
                                                                                 });
                                                                             },
-                                                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_4___default()), {
+                                                                            children: /*#__PURE__*/ jsx_runtime_.jsx((Delete_default()), {
                                                                                 style: {
                                                                                     color: "red"
                                                                                 }
                                                                             })
                                                                         }),
-                                                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.Button, {
+                                                                        /*#__PURE__*/ jsx_runtime_.jsx(material_.Button, {
                                                                             "data-testid": "btn-detail-" + item.id,
                                                                             onClick: ()=>{
                                                                                 setId(item.id);
-                                                                                setnamaLokasi(item.NamaLokasiKerja);
-                                                                                setkordinatX(item.KordinatX);
-                                                                                setkordinatY(item.KordinatY);
+                                                                                setNama(item.nama);
+                                                                                setIdlokasikerja("56");
+                                                                                setTanggallahir(item.tgllahir);
+                                                                                setTelepon(item.nomor_telepon);
+                                                                                setUrlfoto(`http://api.dinarcahayanegara.com/${item.url_foto}`);
                                                                             },
-                                                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_icons_material_Edit__WEBPACK_IMPORTED_MODULE_9___default()), {})
+                                                                            children: /*#__PURE__*/ jsx_runtime_.jsx((Edit_default()), {})
+                                                                        }),
+                                                                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)(material_.Button, {
+                                                                            // variant="contained"
+                                                                            component: "label",
+                                                                            onChange: (e)=>{
+                                                                                // alert(item.id);
+                                                                                // console.log(e.target.files[0]);
+                                                                                setUpload(e.target.files[0], item.id, item.url_foto);
+                                                                            },
+                                                                            children: [
+                                                                                /*#__PURE__*/ jsx_runtime_.jsx((UploadFile_default()), {
+                                                                                    style: {
+                                                                                        color: "orange"
+                                                                                    }
+                                                                                }),
+                                                                                /*#__PURE__*/ jsx_runtime_.jsx("input", {
+                                                                                    type: "file",
+                                                                                    hidden: true
+                                                                                })
+                                                                            ]
                                                                         })
                                                                     ]
                                                                 })
@@ -467,9 +678,9 @@ function Pekerja(props) {
                                                 })
                                             ]
                                         }),
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TableFooter, {
+                                        /*#__PURE__*/ jsx_runtime_.jsx(material_.TableFooter, {
                                             className: classes.footer,
-                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_mui_material__WEBPACK_IMPORTED_MODULE_3__.TablePagination, {
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(material_.TablePagination, {
                                                 rowsPerPageOptions: [
                                                     10,
                                                     25,
@@ -498,18 +709,24 @@ function Pekerja(props) {
     }));
 };
 async function getServerSideProps(context) {
-    var urlEmployers = "http://localhost:8090/pekerja";
+    var urlEmployers = "http://api.dinarcahayanegara.com/pekerja";
     var resEmployers = await fetch(urlEmployers, {
         method: "GET"
     });
     const employerList = await resEmployers.json();
+    var urlDatareferensiLokasiPekerja = "http://api.dinarcahayanegara.com/lokasikerja";
+    var resDatareferensi = await fetch(urlDatareferensiLokasiPekerja, {
+        method: "GET"
+    });
+    const LokasiKerjaList = await resDatareferensi.json();
     return {
         props: {
-            data: employerList || []
+            data: employerList || [],
+            listlokasikerja: LokasiKerjaList || []
         }
     };
 }
-Pekerja.Layout = _comps_LayoutHome__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z;
+Pekerja.Layout = LayoutHome/* default */.Z;
 
 
 /***/ }),
@@ -696,6 +913,27 @@ module.exports = require("@mui/styles");
 
 /***/ }),
 
+/***/ 4046:
+/***/ ((module) => {
+
+module.exports = require("@mui/x-date-pickers/AdapterDateFns");
+
+/***/ }),
+
+/***/ 4764:
+/***/ ((module) => {
+
+module.exports = require("@mui/x-date-pickers/DesktopDatePicker");
+
+/***/ }),
+
+/***/ 5753:
+/***/ ((module) => {
+
+module.exports = require("@mui/x-date-pickers/LocalizationProvider");
+
+/***/ }),
+
 /***/ 8028:
 /***/ ((module) => {
 
@@ -745,7 +983,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [190,675,945,209,968], () => (__webpack_exec__(8797)));
+var __webpack_exports__ = __webpack_require__.X(0, [190,675,945,209,968], () => (__webpack_exec__(4084)));
 module.exports = __webpack_exports__;
 
 })();
