@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .delete(
       //process.env.USER_LOGIN_PESERTA +
-      `http://localhost:8090/pekerja/${parm.id}`
+      process.env.BASE_URL + `/pekerja/${parm.id}`
     )
     .then(function (response) {
       if (response.status == 200) {

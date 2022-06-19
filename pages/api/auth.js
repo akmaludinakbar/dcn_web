@@ -4,7 +4,7 @@ export default async (req, res) => {
   const { token } = req.body;
   let resp = { status: false };
   const bearer = `Bearer ${token}`;
-  var url = "http://localhost:8090/checksession";
+  var url = process.env.BASE_URL + "/checksession";
   const result = await fetch(url, {
     method: "POST",
     headers: { Authorization: bearer },

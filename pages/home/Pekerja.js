@@ -154,7 +154,7 @@ export default function Pekerja(props) {
       //   'Content-Type': 'multipart/form-data',
       // }
     };
-    await fetch(`http://localhost:8090/upload/${id}`, options).then(
+    await fetch(process.env.BASE_URL + `/upload/${id}`, options).then(
       function (res) {
         alert("Tes");
         console.log(res);
@@ -202,7 +202,7 @@ export default function Pekerja(props) {
                     <Avatar
                       alt="Remy Sharp"
                       sx={{ width: 90, height: 90 }}
-                      //src={`http://localhost:8090/images/${item.url_foto}`}
+                      //src={process.env.BASE_URL+`/images/${item.url_foto}`}
                     />
                   </Grid>
                 </Grid>{" "} */}
@@ -438,7 +438,7 @@ export default function Pekerja(props) {
                         <StyledTableCell component="th" scope="row">
                           <Avatar
                             alt="Remy Sharp"
-                            src={`http://localhost:8090/${item.url_foto}`}
+                            src={process.env.BASE_URL + `/${item.url_foto}`}
                           />
                           {/* {item.url_foto} */}
                         </StyledTableCell>
@@ -501,7 +501,7 @@ export default function Pekerja(props) {
 
                               setTelepon(item.nomor_telepon);
                               setUrlfoto(
-                                `http://localhost:8090/${item.url_foto}`
+                                process.env.BASE_URL + `/${item.url_foto}`
                               );
                             }}
                           >
@@ -553,13 +553,13 @@ export default function Pekerja(props) {
   );
 }
 export async function getServerSideProps(context) {
-  var urlEmployers = "http://localhost:8090/pekerja";
+  var urlEmployers = process.env.BASE_URL + "/pekerja";
   var resEmployers = await fetch(urlEmployers, {
     method: "GET",
   });
   const employerList = await resEmployers.json();
 
-  var urlDatareferensiLokasiPekerja = "http://localhost:8090/lokasikerja";
+  var urlDatareferensiLokasiPekerja = process.env.BASE_URL + "/lokasikerja";
   var resDatareferensi = await fetch(urlDatareferensiLokasiPekerja, {
     method: "GET",
   });

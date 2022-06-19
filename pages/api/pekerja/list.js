@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .post(
       //process.env.USER_LOGIN_PESERTA +
-      `http://localhost:8090/absensi`,
+      process.env.BASE_URL + `/absensi`,
       {
         nama: parm.nama,
         tanggal_masuk: parm.tanggal_masuk,

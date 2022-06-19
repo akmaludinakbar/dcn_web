@@ -488,19 +488,19 @@ export default function Absensi(props) {
   );
 }
 export async function getServerSideProps(context) {
-  var urlEmployers = "http://localhost:8090/absensi";
+  var urlEmployers = process.env.BASE_URL + "/absensi";
   var resEmployers = await fetch(urlEmployers, {
     method: "POST",
   });
   const employerList = await resEmployers.json();
 
-  var urlListLokasi = "http://localhost:8090/lokasikerja";
+  var urlListLokasi = process.env.BASE_URL + "/lokasikerja";
   var resListLokasi = await fetch(urlListLokasi, {
     method: "GET",
   });
   const Listlokasikerja = await resListLokasi.json();
 
-  var urlListPekerja = "http://localhost:8090/pekerja";
+  var urlListPekerja = process.env.BASE_URL + "/pekerja";
   var resListPekerja = await fetch(urlListPekerja, {
     method: "GET",
   });

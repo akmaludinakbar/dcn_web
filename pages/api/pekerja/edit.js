@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .put(
       //process.env.USER_LOGIN_PESERTA +
-      `http://localhost:8090/pekerja/${parm.id}`,
+      process.env.BASE_URL + `/pekerja/${parm.id}`,
       {
         nama: parm.nama,
         nomor_telepon: parm.nomor_telepon,

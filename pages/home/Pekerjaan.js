@@ -681,19 +681,19 @@ export default function Pekerjaan(props) {
   );
 }
 export async function getServerSideProps(context) {
-  var urlEmployers = "http://localhost:8090/pekerjaan";
+  var urlEmployers = process.env.BASE_URL + "/pekerjaan";
   var resEmployers = await fetch(urlEmployers, {
     method: "POST",
   });
   const employerList = await resEmployers.json();
 
-  var urlPekerja = "http://localhost:8090/pekerja";
+  var urlPekerja = process.env.BASE_URL + "/pekerja";
   var resPekerja = await fetch(urlPekerja, {
     method: "GET",
   });
   const PekerjaList = await resPekerja.json();
 
-  var urlListLokasi = "http://localhost:8090/lokasikerja";
+  var urlListLokasi = process.env.BASE_URL + "/lokasikerja";
   var resListLokasi = await fetch(urlListLokasi, {
     method: "GET",
   });

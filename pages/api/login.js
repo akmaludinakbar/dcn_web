@@ -6,7 +6,7 @@ export default async (req, res) => {
   axios
     .post(
       //process.env.USER_LOGIN_PESERTA +
-      "http://localhost:8090/loginadmin",
+      process.env.BASE_URL + "/loginadmin",
       {
         nama: parm.username,
         password: parm.password,
