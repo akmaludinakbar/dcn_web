@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
         status: 0
     };
     axios__WEBPACK_IMPORTED_MODULE_0___default().put(//process.env.USER_LOGIN_PESERTA +
-    `http://localhost:8090/lokasikerja/${parm.id}`, {
+    `http://api.dinarcahayanegara.com/lokasikerja/${parm.id}`, {
         lokasikerja: parm.lokasikerja,
         kordinatx: parm.kordinatx,
         kordinaty: parm.kordinaty

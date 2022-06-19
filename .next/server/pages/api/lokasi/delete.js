@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
         status: 0
     };
     axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](//process.env.USER_LOGIN_PESERTA +
-    `http://localhost:8090/lokasikerja/${parm.id}`).then(function(response) {
+    `http://api.dinarcahayanegara.com/lokasikerja/${parm.id}`).then(function(response) {
         if (response.status == 200) {
             resp.status = 200;
             resp.data = response.data;

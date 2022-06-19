@@ -505,7 +505,7 @@ function Lokasi(props) {
     }));
 };
 async function getServerSideProps(context) {
-    var urlEmployers = "http://localhost:8090/lokasikerja";
+    var urlEmployers = "http://api.dinarcahayanegara.com/lokasikerja";
     var resEmployers = await fetch(urlEmployers, {
         method: "GET"
     });

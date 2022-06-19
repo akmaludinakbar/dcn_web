@@ -28,10 +28,11 @@ __webpack_require__.r(__webpack_exports__);
         status: 0
     };
     axios__WEBPACK_IMPORTED_MODULE_0___default().post(//process.env.USER_LOGIN_PESERTA +
-    "http://api.dinarcahayanegara.com/login", {
+    "http://api.dinarcahayanegara.com/loginadmin", {
         nama: parm.username,
         password: parm.password
     }).then(function(response) {
+        console.log(response);
         if (response.status == 200) {
             resp.data = response.data;
             res.json(JSON.stringify(resp));
@@ -40,7 +41,8 @@ __webpack_require__.r(__webpack_exports__);
             res.json(JSON.stringify(resp));
         }
     }).catch(function(error) {
-        resp.status = error.response.status;
+        console.log(error);
+        //  resp.status = error.response.status;
         res.json(JSON.stringify(resp));
     });
 });
