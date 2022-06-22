@@ -30,10 +30,25 @@
       "static/chunks/main.js",
       "static/chunks/pages/home.js"
     ],
-    "/login": [
+    "/home/Lokasi": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/login.js"
+      "static/chunks/pages/home/Lokasi.js"
+    ],
+    "/home/Pekerja": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/home/Pekerja.js"
+    ],
+    "/home/Pekerjaan": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/home/Pekerjaan.js"
+    ],
+    "/home/absensi": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/home/absensi.js"
     ]
   },
   "ampFirstPages": []

@@ -4,7 +4,7 @@ export default async (req, res) => {
   //   let parm = JSON.parse(req.body);
   let resp = { status: 0 };
   await axios
-    .get(process.env.BASE_URL + "/pekerja")
+    .post(process.env.BASE_URL + "/pekerja")
     .then(function (response) {
       if (response.status == 200) {
         resp.status = 200;

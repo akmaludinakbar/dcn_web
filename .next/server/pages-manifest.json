@@ -2,6 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/home": "pages/home.js",
-  "/api/auth": "pages/api/auth.js"
+  "/home/Lokasi": "pages/home/Lokasi.js",
+  "/api/lokasi/list": "pages/api/lokasi/list.js",
+  "/api/auth": "pages/api/auth.js",
+  "/home/Pekerja": "pages/home/Pekerja.js",
+  "/api/pekerja/list2": "pages/api/pekerja/list2.js",
+  "/home": "pages/home.js"
 }

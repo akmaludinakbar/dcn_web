@@ -566,6 +566,7 @@ export async function getServerSideProps({ req }) {
   });
 
   const employerList = await resEmployers.json();
+  console.log(employerList);
 
   var urlDatareferensiLokasiPekerja = `${protocol}//${host}/api/lokasi/list`;
   var resDatareferensi = await fetch(urlDatareferensiLokasiPekerja, {
