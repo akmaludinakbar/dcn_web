@@ -408,12 +408,13 @@ export default function Absensi(props) {
                           <StyledTableCell align="left">
                             {item.url_foto_masuk == ""
                               ? ""
-                              : `http://localhost:64045/${item.url_foto_masuk}`}
+                              : process.env.BASE_URL + `/${item.url_foto}`}
                           </StyledTableCell>
                           <StyledTableCell align="left">
                             {item.url_foto_keluar == ""
                               ? ""
-                              : `http://localhost:64045/${item.url_foto_keluar}`}
+                              : process.env.BASE_URL +
+                                `/${item.url_foto_keluar}`}
                           </StyledTableCell>
                           <StyledTableCell align="left">
                             {item.keterangan}
