@@ -598,7 +598,7 @@ export default function Pekerjaan(props) {
                             {item.Keterangan}
                           </StyledTableCell>
                           <StyledTableCell align="left">
-                            {item.Url_Foto_Pekerjaan}
+                            {`${process.env.BASE_URL}/${item.Url_Foto_Pekerjaan}`}
                           </StyledTableCell>
                           <StyledTableCell align="center">
                             <Chip
