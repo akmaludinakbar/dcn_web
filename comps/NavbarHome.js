@@ -1,13 +1,19 @@
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
+import ArticleIcon from "@mui/icons-material/Article";
+import EngineeringIcon from "@mui/icons-material/Engineering";
 import Toolbar from "@mui/material/Toolbar";
+import ReceiptIcon from "@mui/icons-material/Receipt";
 import List from "@mui/material/List";
+import TouchAppIcon from "@mui/icons-material/TouchApp";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import BusinessIcon from "@mui/icons-material/Business";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "@mui/material/Link";
@@ -71,22 +77,32 @@ let url = [
   {
     path: "/home",
     name: "Dashboard",
+    icon: <DashboardIcon />,
   },
   {
     path: "/home/Pekerja",
     name: "Pekerja",
+    icon: <EngineeringIcon />,
   },
   {
     path: "/home/Lokasi",
     name: "Tambah Lokasi",
+    icon: <BusinessIcon />,
   },
   {
     path: "/home/Pekerjaan",
     name: "Tambah Pekerjaan",
+    icon: <ArticleIcon />,
   },
   {
     path: "/home/absensi",
     name: "Catatan Kehadiran",
+    icon: <TouchAppIcon />,
+  },
+  {
+    path: "/home/gaji",
+    name: "Gaji",
+    icon: <ReceiptIcon />,
   },
 ];
 
@@ -149,6 +165,7 @@ export default function NavbarHome({ children }) {
         <List>
           {url.map((text, index) => (
             <Link
+              key={index}
               href={text.path}
               style={{ textDecoration: "none", color: "black" }}
             >
@@ -165,9 +182,7 @@ export default function NavbarHome({ children }) {
                     : { backgroundColor: text.path == asPath ? "#d8d8d8" : "" }
                 }
               >
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+                <ListItemIcon>{text.icon}</ListItemIcon>
                 <ListItemText primary={text.name} />
               </ListItem>
             </Link>

@@ -5,6 +5,7 @@ import {
   Button,
   Card,
   TextField,
+  CircularProgress,
   Paper,
 } from "@mui/material";
 import { cookie } from "../comps/helpers/cookie";
@@ -14,6 +15,7 @@ export default function Login() {
   const [password, setpassword] = React.useState("");
   const [username, setusername] = React.useState("");
   const [status, setstatus] = React.useState("");
+  const [loading, setloading] = React.useState(false);
 
   function changeValue(e, type, set) {
     setstatus("");
@@ -158,6 +160,7 @@ export default function Login() {
                     fullWidth
                     variant="contained"
                     onClick={(e) => {
+                      setloading(true);
                       let obj = {
                         username: username,
                         password: password,
@@ -169,6 +172,7 @@ export default function Login() {
                       })
                         .then((resp) => resp.json())
                         .then((response) => {
+                          setloading(false);
                           if (response.data.status == undefined) {
                             //gagal login
                             setstatus(response.data);
@@ -180,11 +184,12 @@ export default function Login() {
                           }
                         })
                         .catch(function (error) {
+                          setloading(false);
                           console.log(error);
                         });
                     }}
                   >
-                    Login
+                    {loading ? <CircularProgress size={24} /> : "Login"}
                   </Button>
                   <Typography
                     variant="caption"
