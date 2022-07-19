@@ -11,6 +11,7 @@ export default async (req, res) => {
         nama_pekerjaan: parm.nama_pekerjaan,
         detail: parm.detail,
         id_pekerja: parm.id_pekerja,
+        jenis_pekerjaan: parm.jenis_pekerjaan,
       }
     )
     .then(function (response) {

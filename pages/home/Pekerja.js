@@ -137,21 +137,12 @@ export default function Pekerja(props) {
   };
 
   const setUpload = async (files, id, url_foto) => {
-    // var imagedata = files[0];
-    // console.log("keinsi");
-    // console.log(imagedata);
-    // var data = new FormData();
-    // data.append("File", imagedata);
     const formData = new FormData();
     formData.append("url_foto", url_foto);
     formData.append("file", files);
     const options = {
       method: "POST",
       body: formData,
-      // If you add this, upload won't work
-      // headers: {
-      //   'Content-Type': 'multipart/form-data',
-      // }
     };
     await fetch(process.env.BASE_URL + `/upload/${id}`, options).then(
       function (res) {

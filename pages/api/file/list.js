@@ -3,18 +3,8 @@ import axios from "axios";
 export default async (req, res) => {
   let parm = JSON.parse(req.body);
   let resp = { status: 0 };
-  axios
-    .post(
-      //process.env.USER_LOGIN_PESERTA +
-
-      process.env.BASE_URL + "/tambahpekerjaan",
-      {
-        nama_pekerjaan: parm.nama_pekerjaan,
-        detail: parm.detail,
-        id_pekerja: parm.id_pekerja,
-        jenis_pekerjaan: parm.jenis_pekerjaan,
-      }
-    )
+  await axios
+    .get(process.env.BASE_URL + "/listupload", { data: parm })
     .then(function (response) {
       if (response.status == 200) {
         resp.status = 200;
@@ -26,7 +16,8 @@ export default async (req, res) => {
       }
     })
     .catch(function (error) {
-      resp.status = error.response.status;
+      console.log(error);
+      resp.status = 999;
       res.json(JSON.stringify(resp));
     });
 };

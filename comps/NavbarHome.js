@@ -22,6 +22,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Router from "next/router";
@@ -103,6 +104,11 @@ let url = [
     path: "/home/gaji",
     name: "Gaji",
     icon: <ReceiptIcon />,
+  },
+  {
+    path: "/home/upload",
+    name: "Lain Lain",
+    icon: <UploadFileIcon />,
   },
 ];
 
