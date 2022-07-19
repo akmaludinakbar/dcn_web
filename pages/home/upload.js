@@ -646,17 +646,10 @@ export async function getServerSideProps({ req }) {
   });
   const PekerjaList = await resPekerja.json();
 
-  var urlListLokasi = `${protocol}//${host}/api/lokasi/list`;
-  var resListLokasi = await fetch(urlListLokasi, {
-    method: "GET",
-  });
-  const Listlokasikerja = await resListLokasi.json();
   return {
     props: {
       data: employerList.data || [],
-      listlokasikerja: Listlokasikerja.data || [],
       pekerja: PekerjaList.data || [],
-      statuspekerjaan: [{ label: "pending" }, { label: "dikerjakan" }],
     },
   };
 }
