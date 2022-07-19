@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { format } from "date-fns";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
 import absoluteUrl from "next-absolute-url";
-import PanoramaIcon from "@mui/icons-material/Panorama";
 import {
   Typography,
   Grid,
@@ -23,13 +18,11 @@ import {
   AccordionSummary,
   Select,
   MenuItem,
-  Chip,
   TableHead,
   TableRow,
   TableCell,
   AccordionDetails,
   TableBody,
-  IconButton,
 } from "@mui/material";
 
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -38,12 +31,7 @@ import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tableCellClasses } from "@mui/material/TableCell";
 import Router from "next/router";
-import EditIcon from "@mui/icons-material/Edit";
-import { AttachFile } from "@mui/icons-material";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -133,22 +121,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Upload(props) {
-  const { pekerja, listlokasikerja, statuspekerjaan } = props;
-  const [lokasikerja, setLokasiKerja] = useState(null);
+  const { pekerja } = props;
   const [data, setData] = useState(props.data);
   const [Id, setId] = useState();
   const [file, setfile] = useState();
   const [namafile, setnamafile] = useState("");
   const [status, setStatus] = useState();
-  const [jenispekerjaan, setJenisPekerjaan] = useState();
   const [namaPekerjaan, setNamaPekerjaan] = useState("");
   const [detailPekerjaan, setDetailPekerjaan] = useState("");
   const [nama, setNama] = useState("");
   const [created_at, setCreated_at] = useState(null);
   const classes = useStyles();
-  const handleCreated_at = (newValue) => {
-    setCreated_at(format(newValue, "yyyy-MM-dd"));
-  };
 
   const pesertalabel = (id) => {
     var data = pekerja.find((val) => val.id == id);
@@ -457,7 +440,6 @@ export default function Upload(props) {
                             setNama(null);
                             setStatus(null);
 
-                            setLokasiKerja(null);
                             let obj = {
                               nama: "",
                               tempat_kerja: "",
