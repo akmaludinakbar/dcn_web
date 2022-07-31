@@ -310,7 +310,7 @@ export default function Upload(props) {
                           Upload File
                           <input
                             type="file"
-                            accept="application/pdf,application/vnd.ms-excel,.xls,.xlsx"
+                            accept="application/pdf,application/vnd.ms-excel,.xls,.xlsx,.docx,.doc"
                             hidden
                           />
                         </Button>
